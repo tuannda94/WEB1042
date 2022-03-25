@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <p id="class-name" class="text">WE17303</p>
+    <!-- <p id="class-name">we17111</p> -->
+    <p id="teacher-name" class="text teacher">tuannda3</p>
+
+    <!-- innerText -->
+    <p class="inner-text"><span>FPT Poly</span></p>
+    <p class="inner-text">Poly</p>
+
+    <!-- Thay ảnh -->
+    <div>
+        <img
+            src="https://iap.poly.edu.vn/user/ph/PH23799.jpg"
+            alt="Avatar"
+            id="avatar"
+            height="100"
+        >
+        <button onclick="onChangeImage()">Thay ảnh</button>
+    </div>
+
+    <!-- Slide ảnh -->
+    <div class="slide">
+        <button onclick="onBackImage()">Lùi</button>
+        <img
+            src="https://iap.poly.edu.vn/user/ph/PH23799.jpg"
+            alt="slide-image"
+            id="slide-image"
+            height="100"
+        >
+        <button onclick="onNextImage()">Tiến</button>
+    </div>
+
+    <script>
+        // Slide
+        var imageSrc = [
+            'https://iap.poly.edu.vn/user/ph/PH23799.jpg', //0
+            'https://iap.poly.edu.vn/user/ph/PH24577.jpg', //1
+            'https://iap.poly.edu.vn/user/ph/PH24166.jpg', //2
+            'https://iap.poly.edu.vn/user/ph/PH23432.jpg' // 3
+        ]; // length = 4
+        var defaultSrcIndex = 0;
+        var slideImage = document.getElementById('slide-image');
+        slideImage.src = imageSrc[defaultSrcIndex];
+
+        function onNextImage() {
+            if (defaultSrcIndex >= imageSrc.length - 1) {
+                defaultSrcIndex = -1;
+            }
+            defaultSrcIndex = defaultSrcIndex + 1;
+            slideImage.src = imageSrc[defaultSrcIndex];
+        }
+
+        function onBackImage() {
+            if (defaultSrcIndex <= 0) {
+                defaultSrcIndex = imageSrc.length;
+            }
+            defaultSrcIndex = defaultSrcIndex - 1;
+            slideImage.src = imageSrc[defaultSrcIndex];
+        }
+
+    </script>
+
+    <!-- <script>
+        var innerTextElements = document.getElementsByClassName('inner-text');
+        var firstElement = innerTextElements[0];
+        var secondElement = innerTextElements[1];
+        console.log(firstElement, secondElement);
+        console.log(firstElement.innerHTML, secondElement.innerHTML);
+        console.log(firstElement.innerText, secondElement.innerText);
+
+        // Thay anh
+        function onChangeImage() {
+            // 1. Tìm ra đối tượng ảnh cần tương tác
+            var avatarElement = document.getElementById('avatar');
+            // 2. Gán giá trị cho thuộc tính src để đổi đường dẫn ảnh mới
+            avatarElement.src = 'https://iap.poly.edu.vn/user/ph/PH23131.jpg';
+            // console.log(avatarElement.src);
+        }
+    </script> -->
+
+    <!-- <script>
+        console.log(document);
+        // console.log(window.document);
+
+        // Tim den 1 phan tu bang id, chi co 1 phan tu duy nhat
+        var classNameElement = document.getElementById('class-name');
+        var teacherNameElement = document.getElementById('teacher-name');
+        console.log(classNameElement, teacherNameElement);
+        // Lay ra noi dung HTML trong the va thay doi no
+        console.log(classNameElement.innerHTML, teacherNameElement.innerHTML);
+        classNameElement.innerHTML = '<h1>WE17304</h1>';
+        teacherNameElement.innerHTML = "<img src='https://iap.poly.edu.vn/user/ph/PH23131.jpg' height='200' />";
+        //style
+        classNameElement.style.border = '1px solid';
+        classNameElement.style.borderRadius = '10px';
+        teacherNameElement.style.color = 'red';
+
+
+        // Tim den 1 hoac nhieu phan tu bang ten the
+        var pElements = document.getElementsByTagName('p');
+        console.log(pElements[1].innerHTML = 'INNER HTML');
+
+        // Tim den 1 hoac nhieu phan tu bang class
+        var textClassElements = document.getElementsByClassName('text');
+        var teacherClassElements = document.getElementsByClassName('teacher');
+        var mixClassElements = document.getElementsByClassName('text teacher');
+        console.log('textClassElements', textClassElements);
+        console.log('teacherClassElements', teacherClassElements);
+        console.log('mixClassElements', mixClassElements);
+
+        // innerText
+    </script> -->
+</body>
+</html>
