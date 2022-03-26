@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+</head>
+<body>
+    <p class="ten-lop cp">CP17301</p>
+    <p class="ten-thay"><span>tuannda3</span></p>
+    <p id="school">FPT POLY</p>
+    <h1 id="dom"><p>DOM</p></h1>
+    <button onclick="changeImage()">Thay ảnh</button>
+
+    <!-- Slider -->
+    <div style="text-align: center;">
+        <button onclick="onBack()">Lùi</button>
+        <img
+            src=""
+            alt="slider"
+            id="slider-image"
+            height="150"
+        />
+        <button onclick="onNext()">Tiến</button>
+        <div id="slider-select"></div>
+    </div>
+
+    <script>
+        // Xử lý slider
+        // Định nghĩa 1 mảng đường dẫn ảnh, khi click sẽ thay đường dẫn
+        var images = [
+            'https://iap.poly.edu.vn/user/ph/PH24971.jpg',
+            'https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool.jpg',
+            'https://imgv3.fotor.com/images/homepage-feature-card/Fotor-photo-effects.jpg',
+            'https://www.cnet.com/a/img/resize/e6ebe3e27adcb4bd4a50a42ce8f6cf7bc1844472/2020/04/16/7d6d8ed2-e10c-4f91-b2dd-74fae951c6d8/bazaart-edit-app.jpg?auto=webp&width=940',
+        ];
+        // Tìm phần tử ảnh hiển thị
+        var sliderImage = document.getElementById('slider-image');
+        var defaultImageIndex = 0;
+        sliderImage.src = images[defaultImageIndex];
+        onSetSelect();
+
+        function onNext() {
+            // kiểm tra, nếu vị trí hiện tại ở cuối mảng thì dừng
+            if (defaultImageIndex == images.length - 1) {
+                defaultImageIndex = -1;
+            }
+            // Nếu không sẽ tăng lên và gán đường dẫn mới
+            defaultImageIndex = defaultImageIndex + 1;
+            sliderImage.src = images[defaultImageIndex];
+            onSetSelect();
+        }
+
+        function onBack() {
+            if (defaultImageIndex == 0) {
+                defaultImageIndex = images.length;
+            }
+            defaultImageIndex = defaultImageIndex - 1;
+            sliderImage.src = images[defaultImageIndex];
+            onSetSelect();
+        }
+
+        // Slider Select
+        function onSetSelect () {
+            var sliderSelect = document.getElementById('slider-select');
+            // Xoá hết những chữ o cũ đi và append cái mới với vị trí mới
+            sliderSelect.innerHTML = '';
+            // appendChild
+            // Tạo element span có nội dung o ở trong
+            for (i = 0; i < images.length; i++) {
+                // Mỗi 1 lần lặp sẽ tạo 1 đối tượng thẻ có tên thẻ span
+                var spanNode = document.createElement('span');
+                // gán nội dung bên trong thẻ
+                spanNode.innerHTML = 'o';
+                // gán thuộc tính inline style cho thẻ
+                spanNode.style = 'margin-right: 10px';
+                // spanNode.style.marginRight = '10px';
+                if (i == defaultImageIndex) {
+                    spanNode.style.color = 'red';
+                }
+                // đưa đối tượng thẻ vào bên trong sliderSelect
+                sliderSelect.appendChild(spanNode);
+            }
+        }
+
+    </script>
+
+    <!-- <script>
+        // Tương tác giữa HTML và Document bằng JS
+        console.log(document);
+        // sử dụng đối tượng document và các phương thức của nó
+        // Tìm 1 hoặc nhiều thẻ bằng tên thẻ
+        var pElements = document.getElementsByTagName('p');
+        console.log(pElements[0], pElements[1], pElements[2], pElements[3]);
+        // Lấy ra nội dung HTML ở bên trong 1 thẻ nào đó
+        console.log(pElements[0].innerHTML, pElements[1].innerHTML);
+        console.log(pElements[0].innerText, pElements[1].innerText);
+
+        // Tìm 1 thẻ bằng id
+        // Chạy ngay khi script được đọc
+        var schoolElement = document.getElementById('school');
+            schoolElement.innerHTML =
+            "<img height='200' src='https://iap.poly.edu.vn/user/ph/PH24971.jpg' />";
+        // Chạy khi có sự kiện click vào nút Thay ảnh
+        function changeImage() {
+            var schoolElement = document.getElementById('school');
+            console.log(schoolElement);
+            schoolElement.innerHTML =
+            "<img height='200' src='https://iap.poly.edu.vn/user/ph/PH20223.jpg' />";
+        }
+
+        // Tìm 1 hoặc nhiều thẻ theo class
+        var tenLopElements = document.getElementsByClassName('ten-lop cp');
+        console.log(tenLopElements[0]);
+
+    </script> -->
+</body>
+</html>
