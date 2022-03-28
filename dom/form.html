@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1>Tạo mới sinh viên</h1>
+    <div>
+        <form>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="id">ID</label>
+                <input type="text" id="id">
+            </div>
+            <div>
+                <label for="class">Class</label>
+                <input type="text" id="class">
+            </div>
+            <div>
+                <button type="button" onclick="onSubmit()">Submit</button>
+            </div>
+            <div id="thong-bao" style="color: red;">
+            <!-- innerHTML de nhap thong bao vao day -->
+            </div>
+        </form>
+    </div>
+    <script>
+        function onSubmit() {
+            inputName = document.getElementById('name');
+            inputId = document.getElementById('id');
+            inputClass = document.getElementById('class');
+
+            nameValue = inputName.value;
+            idValue = inputId.value;
+            classValue = inputClass.value;
+            // Validate
+            thongBao = document.getElementById('thong-bao');
+            if (nameValue == '' || idValue == '' || classValue == '') {
+                thongBao.innerHTML = '<div>Không được để trống</div>';
+            } else {
+                thongBao.innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>

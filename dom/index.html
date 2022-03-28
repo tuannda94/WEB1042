@@ -27,7 +27,7 @@
     </div>
 
     <!-- Slide ảnh -->
-    <div class="slide">
+    <div class="slide" style="text-align:center">
         <button onclick="onBackImage()">Lùi</button>
         <img
             src="https://iap.poly.edu.vn/user/ph/PH23799.jpg"
@@ -36,6 +36,7 @@
             height="100"
         >
         <button onclick="onNextImage()">Tiến</button>
+        <div id="slide-select"></div>
     </div>
 
     <script>
@@ -50,12 +51,16 @@
         var slideImage = document.getElementById('slide-image');
         slideImage.src = imageSrc[defaultSrcIndex];
 
+        // Gọi hàm setSelect để chạy lần đầu tiên
+        setSelect();
+
         function onNextImage() {
             if (defaultSrcIndex >= imageSrc.length - 1) {
                 defaultSrcIndex = -1;
             }
             defaultSrcIndex = defaultSrcIndex + 1;
             slideImage.src = imageSrc[defaultSrcIndex];
+            setSelect();
         }
 
         function onBackImage() {
@@ -64,8 +69,28 @@
             }
             defaultSrcIndex = defaultSrcIndex - 1;
             slideImage.src = imageSrc[defaultSrcIndex];
+            setSelect();
         }
-
+        // Select
+        function setSelect () {
+            var slideSelect = document.getElementById('slide-select');
+            // Trước khi append sẽ xoá nd đang có để không bị append
+            // thừa nội dung
+            slideSelect.innerHTML = '';
+            // Tạo thẻ con để đưa vào thẻ cha,
+            // sd createElement nhận vào tên thẻ
+            for (i = 0; i < imageSrc.length; i++) {
+                // Tạo mới mỗi lần trong vòng lặp
+                // Nếu tạo bên ngoài thì chỉ appendChild được 1 lần
+                var spanSelect = document.createElement('span');
+                spanSelect.innerHTML = 'o';
+                spanSelect.style.margin = '10px';
+                if (i == defaultSrcIndex) {
+                    spanSelect.style.color = 'red';
+                }
+                slideSelect.appendChild(spanSelect);
+            }
+        }
     </script>
 
     <!-- <script>
