@@ -85,6 +85,14 @@
                 var spanSelect = document.createElement('span');
                 spanSelect.innerHTML = 'o';
                 spanSelect.style.margin = '10px';
+                spanSelect.style.cursor = 'pointer';
+                // console.log(i, defaultSrcIndex);
+                // var index = i;
+                // spanSelect.onclick = function () {
+                //     defaultSrcIndex = index;
+                //     slideImage.src = imageSrc[defaultSrcIndex];
+                //     alert(defaultSrcIndex, imageSrc[defaultSrcIndex]);
+                // }.bind(this);
                 if (i == defaultSrcIndex) {
                     spanSelect.style.color = 'red';
                 }
