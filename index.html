@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 1: JS Cơ bản</title>
+</head>
+<body>
+    <h1>JS cơ bản</h1>
+    <div id="js-nangcao"></div>
+    <div id="js-text"></div>
+    <div>
+        Tổng 2 số: <span id="span"></span>
+    </div>
+    <script>
+        var number_1 = 123;
+        var number_2 = 1234567;
+        document.querySelector('#span')
+            .innerText = number_1 + number_2;
+    </script>
+
+
+    <!-- Đặt phần script để viết nội dung JS
+        ở cuối cùng trong body
+    -->
+    <script>
+        document.querySelector('#js-nangcao')
+            .innerHTML = '<h1>JS NÂNG CAO</h1>';
+        // alt + shift + mũi tên xuống
+        document.querySelector('#js-text')
+            .innerText = '<h1>JS NÂNG CAO</h1>';
+    </script>
+    <script>
+        // Nội dung cú pháp JS
+        // <h1>ND trong h1</h1> -> không viết thế này
+        // alert('Hello world');
+        // console.log('ND log ra');
+    </script>
+    <script src="index.js">
+        // Nếu đã có src thì không đọc nội dung
+        // trong này nữa
+    </script>
+</body>
+</html>
