@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 1: JS cơ bản</title>
+</head>
+<body>
+    <h1>JS cơ bản</h1>
+    <div id="classname"></div>
+    <div id="classname-h1"></div>
+
+    <!-- Đoạn code js đặt ở dưới cùng phần body -->
+    <script>
+        // nếu muốn tương tác với html thì phải tìm
+        // đc vị trí cần tương tác trước
+        document.querySelector('#classname')
+            .innerText = '<h1>WE18352</h1>';
+        document.querySelector('#classname-h1')
+            .innerHTML = '<h1>WE18352</h1>';
+
+        // BT: khai báo 2 biến có kiểu số
+        // Hiển thị lên màn hình tổng 2 số đó
+
+
+
+        // Đây là nơi viết cú pháp js
+        // alert('Hello world');
+    </script>
+    <!-- Alt + Shift + Mũi tên xuống -->
+    <script src="index.js">
+        // Đây là nơi viết cú pháp js
+        // Nếu đã có src thì code trong cặp thẻ này
+        // không được chạy vào nữa, chỉ chạy index.js
+        // alert('Hello world thu 2');
+    </script>
+</body>
+</html>
