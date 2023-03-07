@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 1: JS cơ bản</title>
+</head>
+<body>
+    <h1>Buổi 1</h1>
+    <!-- Muốn JS tương tác được thì phải xác định được vị trí
+    cần tương tác, bằng tên thẻ/id/class -->
+    <h1 id="text">ND sẽ được thay bằng javascript</h1>
+    <div id="html-text"></div>
+    <div id="tinh-tong"></div>
+
+    <script>
+        document.querySelector('#text').innerText = 'JS Cơ bản';
+        document.querySelector('#html-text').innerHTML = '<h1>abc</h1>';
+        // BTVN
+        // Khai báo 2 biến có kiểu dữ liệu số
+        // Tính tổng sau đó hiển thị kết quả lên thẻ có id tinh-tong
+    </script>
+    <!-- Đặt script ở vị trí cuối cùng của body -->
+    <script>
+        // Nơi có thể viết cú pháp javascript
+        // alert('Hello world');
+
+        // Khai báo biến
+        var ten_bien;
+        var ten_bien_2 = 'gia tri cua bien 2';
+    </script>
+    <script src="index.js">
+        // Nếu đã dùng src để lấy nd file js thì code js bên dưới
+        // sẽ không chạy vào nữa
+        alert('Hello trong src');
+    </script>
+</body>
+</html>
