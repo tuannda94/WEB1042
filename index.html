@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 1: JS cơ bản</title>
+</head>
+<body>
+    <h1>JS cơ bản</h1>
+    <h1 id="text"></h1>
+    <div id="nd-the"></div>
+    <div>Tổng 2 số: <span id="tong"></span></div>
+
+    <!-- Đây là vị trí viết code JS -->
+    <script>
+        var a = 123123; var b = 234234;
+        document.querySelector('#tong')
+            .innerText = a + b;
+        // Gán nd vào thẻ có id là text
+        document.querySelector('#text')
+            .innerText = 'IT18315';
+        document.querySelector('#nd-the')
+            .innerHTML = '<h1>ND JS</h1>';
+        // BT: 2 biến kiểu dữ liệu số
+        // Hiển thị kq tính tổng 2 số lên html
+    </script>
+    <script>
+        // Nội dung JS viết trong này
+        // alert('Say bye world');
+    </script>
+    <!-- Alt + Shift + Mũi tên xuống -->
+    <script src="index.js">
+        // Nội dung JS viết trong này
+        // Ctrl + D để trỏ chuột vào nhiều nd giống nhau
+        // Nếu đã có src thì code js trong này
+        // k chạy nữa
+        // alert('Say bye world lan 2');
+    </script>
+</body>
+</html>
