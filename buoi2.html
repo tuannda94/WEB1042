@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 2: Toán tử, câu Đk, vòng lặp, Prompt</title>
+</head>
+<body>
+    <h1>Buổi 2: Toán tử, câu Đk, vòng lặp, Prompt</h1>
+    <p id="thong-bao" style="color: red"></p>
+    <script>
+        // Prompt là 1 popup cho phép nhập giá trị và nhận kq bằng phép gán
+        // var age = prompt('Nhập tuổi để kiểm tra:');
+        // Nhận dữ liệu là số tuổi
+        // Kiểm tra xem có phải người lớn không: so sánh với 18
+        // Nếu nhập không đúng thì ghi: Không hợp lệ
+
+        // B1: Đưa nội dung nhập từ prompt(chuỗi) thành số
+        // age = Number(age); // Cách 1: ép bằng đối tượng Number
+        // age = parseInt(age); // Cách 2: dùng hàm ép kiểu parseInt
+        // age = age * 1; age = age + 0; // Cách 3: ép phải tính toán
+        // age = +age;
+        age = 0;
+        // B2: Kiểm tra và hiển thị thông báo
+        if (isNaN(age)) {
+            document.querySelector('#thong-bao').innerText = age + '. Không hợp lệ';
+        } else if (age >= 18) {
+            document.querySelector('#thong-bao').innerText = age + '. Người lớn';
+        } else {
+            document.querySelector('#thong-bao').innerText = `${age} .Trẻ em`;
+        }
+
+        var so_1 = +prompt('Nhập số thứ nhất:');
+        var so_2 = +prompt('Nhập số thứ hai:');
+        // Nếu dùng innerHTML thì cần thẻ <br> để xuống dòng
+        var thong_bao_tinh_2_so = '';
+        if (isNaN(so_1) || isNaN(so_2)) {
+            thong_bao_tinh_2_so = '1 trong 2 không phải số';
+        } else {
+            thong_bao_tinh_2_so = `
+            Số thứ nhất: ${so_1}
+            Số thứ hai: ${so_2}
+            Tổng: ${so_1 + so_2}
+            Hiệu: ${so_1 - so_2}
+            Tích: ${so_1 * so_2}
+            Thương: ${so_1 / so_2}
+            Chia lấy phần nguyên: ${parseInt(so_1 / so_2)}
+            Chia lấy phần dư: ${so_1 % so_2}
+        `;
+        }
+        document.querySelector('#thong-bao').innerText = thong_bao_tinh_2_so;
+    </script>
+</body>
+</html>
