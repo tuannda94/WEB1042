@@ -1,0 +1,68 @@
+<!-- Buoi2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 2</title>
+</head>
+<body>
+    <h1>Buổi 2</h1>
+
+    <script>
+        var smt = prompt('Nhập vào số môn đã bị trượt của bạn');
+        console.log('Số môn trượt:', 123, smt);
+        // VD: smt = 5;
+        // Để thực hiện tính toán cần đưa giá trị chuỗi về dạng số
+        // Cách 1: parseInt(smt)
+        // Cách 2: Number(smt)
+        // Cách 3: thực hiện phép tính: + 0 hoặc * 1
+        // Cách 4: +smt
+        smt = +smt; // gán lại giá trị mới = giá trị cũ dạng số
+        console.log('Tổng tín chỉ', smt + 50); // 550
+        console.log('Hiệu tín chỉ', smt - 50); // -45
+        console.log('Tích tín chỉ', smt * 50); // 250
+        console.log('Chia tín chỉ', smt / 50); // 0.1
+        console.log('Chia lấy dư tín chỉ', smt % 50); // 5
+
+        // Tính số tiền học lại,
+        // nếu smt < 20: thì 600k 1 môn
+        // nếu smt >= 20: thì chiết khấu còn 500k 1 môn
+        // nếu smt không phải số: thì được tốt nghiệp
+        console.log('isNaN', isNaN(smt));
+        var tb = '';
+        if (isNaN(smt)) {
+            // Nếu không phải số
+            tb = 'Được tốt nghiệp';
+        } else if (smt < 20) {
+            // Nếu là số và < 20
+            // Chuỗi + số ra 1 chuỗi mới
+            tb = 'Tiền học: ' + (smt * 600);
+        } else {
+            // Nếu là số và >=20
+            tb = 'Tiền học: ' + (smt * 500);
+        }
+        document.write(tb);
+        // Tính đúng sai của giá trị trong JS
+        // Những gt sai: 0, '', null, undefined, false, NaN
+
+        // Hàm
+        // Tính tổng 2 số
+        function sum() {
+            var a = 2; var b = 3;
+            alert(a + b);
+        }
+        function sum_alert(a, b) {
+            alert(a + b);
+        }
+        function sum_return(a, b) {
+            if (isNaN(a) || isNaN(b)) {
+                return 0;
+            }
+
+            return (a + b);
+        }
+    </script>
+</body>
+</html>
