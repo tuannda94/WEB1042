@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 2: prompt, toán tử, câu dk, vòng lặp</title>
+</head>
+<body>
+    <h1>Buổi 2</h1>
+
+    <script>
+        // Nội dung phần js
+        var age = prompt('Mời nhập giá trị tuổi của bạn:');
+        // Để thực hiện tính toán chính xác thì ép kiểu trc
+        // Cách 1: Number(age)
+        // Cách 2: parseInt(age)
+        // Cách 3: thực hiện phép tính - 0, * 1, / 1
+        // Cách 4: +age
+        age = +age; // sau khi ép xong tổng sẽ là 56
+
+        // Nếu giá trị nhập vào có chữ (không ép được về số: NaN)
+        // Cần kiểm tra trước
+        if (isNaN(age) == true) {
+            // Nếu true có nghĩa: không là số, nên k tính nữa
+            console.log('Giá trị nhập vào k phải số');
+        } else {
+            console.log('age', 123, age);
+            console.log('Tổng tuổi:', age + 28); // chuỗi 2828
+            console.log('Hiệu tuổi:', age - 28); // số 0
+            console.log('Tích tuổi:', age * 28); // số ...
+            console.log('Thương tuổi:', age / 28); // số 1
+            console.log('Chia lấy dư tuổi:', age % 28); // số 0
+        }
+
+        // ĐK: Nếu k phải số thì hiển thị lên mh: Không hợp lệ
+        // ĐK: Nếu là số >= 18 thì hiển thị lên mh: Người lớn
+        // ĐK: Nếu là số < 18 thì hiển thị lên mh: Trẻ trâu
+        var tb = '';
+        if (isNaN(age)) {
+            tb = 'Không hợp lệ';
+        } else if (age >= 18) {
+            tb = 'Nguời lớn';
+        } else {
+            tb = 'Trẻ trâu';
+        }
+        document.write(tb);
+
+        // Hàm tính tổng
+        function sum () {
+            var a = 2; var b = 3;
+            alert(a + b);
+        }
+
+        function sum_alert (a, b) {
+            alert(a + b);
+        }
+
+        function sum_return (a, b) {
+            if (isNaN(a) || isNaN(b) ) {
+                return 0;
+            };
+
+            return (a + b);
+        }
+    </script>
+</body>
+</html>
