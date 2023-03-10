@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 3: Vòng lặp</title>
+</head>
+<body>
+    <table border="1">
+        <thead><tr>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Kỷ niệm</th>
+        </tr></thead>
+        <tbody id="table-body">
+            <tr>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var numbers = [1, 2, 3, 4];
+        for (i = 0; i < numbers.length; i++) {
+            console.log(numbers[i]);
+        }
+
+        var string_array = ['abc', 'def'];
+
+        // [] thể hiện đây là mảng danh sách
+        // {} thể hiện từng phần tử có kiểu là đối tượng
+        var nyc = [
+            {
+                id: 1,
+                ten: 'Nguyen Thi B',
+                ky_niem: 'Lan dau an kem ho tay',
+                sinh_nhat: '10/10/1980',
+                lan_dau_hen_ho: '01/01/2020',
+                trang_thai: 1
+            },
+            {
+                id: 2,
+                ten: 'Nguyen Thi B',
+                ky_niem: 'Lan dau an kem ho tay',
+                sinh_nhat: '10/10/1981',
+                lan_dau_hen_ho: '01/01/2021',
+                trang_thai: 0
+            },
+        ];
+        // YC: Hiển thị dữ liệu dạng mảng lên phần tbody
+        // Tạo ra chuỗi là phần html còn đang thiếu trong tbody
+        // Sau đó dùng innerHTML để đưa vào
+        var nd_body = '';
+        for (i = 0; i < nyc.length; i ++) {
+            // nd_body = nd_body + 'cú pháp thẻ html'
+            nd_body += `
+                <tr>
+                    <td>${nyc[i].id}</td>
+                    <td>${nyc[i].ten}</td>
+                    <td>${nyc[i].ky_niem}</td>
+                </tr>
+            `
+        }
+        document.querySelector('#table-body').innerHTML = nd_body;
+    </script>
+</body>
+</html>
