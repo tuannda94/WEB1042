@@ -1,0 +1,52 @@
+<!-- buoi4_su_kien.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 4 - Sự kiện</title>
+</head>
+<body>
+    <!-- Định nghĩa tên sự kiện mong muốn nắm bắt được -->
+    <!-- Vị trí giống như các thuộc tính của 1 thẻ -->
+    <!-- Giá trị của sự kiện là code JS -->
+    <h1 onclick="alert('Bấm vào h1')" id="h1">Buổi 4</h1>
+    <button onclick="
+        // document.querySelector('#h1').innerHTML là nội dung
+        // html ở bên trong thẻ có id là h1
+        console.log(document.querySelector('#h1').innerHTML);
+        document.querySelector('#h1').innerHTML = 'ND đã đổi';
+    ">Click vào nút này để đổi ND h1</button>
+
+    <!-- Phát sự kiện để gọi 1 hàm đã định nghĩa -->
+    <button onclick="themND()">
+        Thêm nội dung vào giao diện HTML
+    </button>
+
+    <!-- Sự kiện di chuột, onmouseenter -->
+    <div id="show-anh"
+        onmouseenter="hienThiAnh()"
+        onmouseleave="anAnh()"
+    >
+        Di chuột vào để hiển thị ảnh
+    </div>
+    <script>
+        // Định nghĩa hàm
+        function themND () {
+            document.write('<h2>ND được thêm bằng hàm</h2>');
+        }
+        // Hàm được gọi khi di chuột vào thẻ div có id show-anh
+        function hienThiAnh () {
+            document.querySelector('#show-anh').innerHTML =
+            // `<img src="https://picsum.photos/500" width="500" >
+            `<img src="./anh/anh-mang.jpg" width="500" >`;
+        }
+        // Hàm được gọi khi di chuột ra khỏi thẻ div có id show-anh
+        function anAnh() {
+            document.querySelector('#show-anh').innerHTML =
+            'Di chuột vào để hiển thị ảnh';
+        }
+    </script>
+</body>
+</html>
