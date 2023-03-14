@@ -1,0 +1,88 @@
+<!-- buoi4_vong_lap.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 4</title>
+</head>
+<body>
+    <h1>Buổi 4</h1>
+    <table border="1">
+        <thead><tr>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Sinh nhật</th>
+            <th>Kỷ niệm</th>
+            <th>Địa chỉ lần gặp đầu tiên</th>
+            <th>Còn liên lạc không</th>
+        </tr></thead>
+        <!-- document.querySelector('#nd-bang').innerHTML =  -->
+        <tbody id="nd-bang">
+            <tr>
+                <td>1</td>
+                <td>Nguyen Thi B</td>
+                <td>10/10/2010</td>
+                <td>Đi du lịch tam đảo</td>
+                <td>Hà Nội</td>
+                <td>Còn liên lạc</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Đối tượng sẽ có các thuộc tính và phương thức
+        // thuộc tính sẽ có giá trị và thể hiện bằng các cặp
+        // key: value
+        var mot_nyc = {
+            ma_nyc: 1,
+            ten: 'Nguyen Thi C',
+            sinh_nhat: '10/10/2010',
+            ky_niem: 'Đi du lịch tam đảo',
+            dia_chi: 'Hà Nội',
+            trang_thai: 1
+        };
+        var ds_nyc = [
+            {
+                ma_nyc: 1,
+                ten: 'Nguyen Thi B',
+                sinh_nhat: '10/10/2010',
+                ky_niem: 'Đi du lịch tam đảo',
+                dia_chi: 'Hà Nội',
+                trang_thai: 1
+            },
+            {
+                ma_nyc: 2,
+                ten: 'Nguyen Thi C',
+                sinh_nhat: '10/10/2010',
+                ky_niem: 'Đi du lịch tam đảo',
+                dia_chi: 'Hà Nội',
+                trang_thai: 1
+            },
+        ];
+        // console.log('Thông tin trong object:', mot_nyc.ky_niem);
+        // console.log('Thông tin trong arr:', ds_nyc[1].ky_niem);
+        var ndBang = '';
+        for (i = 0; i < ds_nyc.length; i++) {
+            // Lần 1: ndBang = '' + 'Nguyen Thi B'
+            // Lần 2: ndBang = 'Nguyen Thi B' + 'Nguyen Thi C'
+            // Hết vòng lặp: ndBang = 'Nguyen Thi BNguyen Thi C';
+            // ndBang += '<tr><td>' + ds_nyc[i].ma_nyc + '</td></tr>';
+            ndBang += `
+                <tr>
+                    <td>${ds_nyc[i].ma_nyc}</td>
+                    <td>${ds_nyc[i].ten}</td>
+                    <td>${ds_nyc[i].ky_niem}</td>
+                    <td>${ds_nyc[i].sinh_nhat}</td>
+                    <td>${ds_nyc[i].dia_chi}</td>
+                    <td>${ds_nyc[i].trang_thai}</td>
+                </tr>
+            `;
+        }
+        // Sau khi chạy vòng lặp và có nd hoàn chỉnh mới innerHTML
+        document.querySelector('#nd-bang')
+            .innerHTML = ndBang;
+    </script>
+</body>
+</html>
