@@ -1,0 +1,82 @@
+<!-- buoi4_vong_lap_html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 4</title>
+</head>
+<body>
+    <h1>Buổi 4</h1>
+    <div id="tieu_de_phu"></div>
+    <div id="noi_dung_hoc"></div>
+    <ul id="danh_sach_hoc">
+    </ul>
+
+    <table>
+        <thead><tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+        </tr></thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        var nd_hoc_1 = 'Vòng lặp';
+        var nd_hoc_2 = 'Sự kiện';
+        document.querySelector('#tieu_de_phu').innerHTML
+            // = '<h2> Vòng lặp, sự kiện </h2>'
+            // = '<h2>' + nd_hoc_1 + ', ' + nd_hoc_2 + '</h2>';
+            // `chuỗi ${đọc cú pháp biến js để lấy giá trị ra}`
+            = `<h2> ${nd_hoc_1}, ${nd_hoc_2}, ... </h2>`;
+        document.querySelector('#noi_dung_hoc').innerText
+            = `
+                - ${nd_hoc_1}: Sử dụng vòng for
+                - ${nd_hoc_2}: Sử dụng các thuộc tính sự kiện
+            `;
+        // Mảng
+        var array_number = [1,2,3,4,5,6,7,8,9,10];
+        document.querySelector('#danh_sach_hoc').innerHTML
+            = `
+                <li>${array_number[0]}</li>
+                <li>${array_number[1]}</li>
+                <li>${array_number[2]}</li>
+            `;
+
+        // Xử lý chuỗi kết hợp mảng
+        var nd = '';
+        for(i = 0; i < array_number.length; i++) {
+            nd += `<li>${array_number[i]}</li>`;
+        }
+        document.querySelector('#danh_sach_hoc').innerHTML
+            = nd;
+
+        // Mảng kết hợp đối tượng
+        var mot_san_pham = {
+            ma_sp: 1,
+            ten_sp: 'ODDO'
+        };
+        console.log(mot_san_pham.ten_sp);
+        var ds_san_pham = [
+            {ma_sp: 1, ten_sp: 'SVMSUNG'}, // ds_san_pham[0]
+            {ma_sp: 2, ten_sp: 'dy'}, // ds_san_pham[1]
+        ];
+        var nd_ds_sp = '';
+        for(i = 0; i < ds_san_pham.length; i++) {
+            nd_ds_sp += `
+                <tr>
+                    <td>${ds_san_pham[i].ma_sp}</td>
+                    <td>${ds_san_pham[i].ten_sp}</td>
+                </tr>
+            `;
+        }
+        // Nếu thẻ tbody chỉ xuất hiện 1 lần thì có thể dùng
+        // để tìm ra bằng querySelector
+        document.querySelector('tbody').innerHTML = nd_ds_sp;
+
+    </script>
+</body>
+</html>
