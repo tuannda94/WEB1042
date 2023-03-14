@@ -1,0 +1,84 @@
+<!-- buoi4_vong_lap.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buoi 4</title>
+</head>
+<body>
+    <div id="tieu_de"></div>
+    <div id="tieu_de_phu"></div>
+    <div id="bang">
+        <table border="1">
+            <thead><tr>
+                <th>ID</th>
+                <th>Tên SP</th>
+                <th>Giá</th>
+            </tr></thead>
+            <tbody id="danh_sach">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var so_buoi_hoc = 4;
+        document.querySelector('#tieu_de').innerHTML
+            = '<h1>Buổi ' + so_buoi_hoc + '</h1>';
+        document.querySelector('#tieu_de_phu').innerHTML = `
+            <ul>
+                <li>Buổi ${so_buoi_hoc}</li>
+            </ul>
+        `;
+
+        // Vòng lặp có đoói tượng
+        var mot_chiec_dien_thoai = {
+            ma_sp: 1, // key: value,
+            ten_sp: 'IPHONE'
+        };
+        console.log(mot_chiec_dien_thoai);
+        // Lấy ra giá trị của các thuộc tính bên trong 1 đối tượng
+        console.log(mot_chiec_dien_thoai.ma_sp);
+        console.log(mot_chiec_dien_thoai.ten_sp);
+
+        // DS các đối tượng, thì các đối tượng này nên có chung kiểu thuộc tính
+        var ds_dien_thoai = [
+            {ma_sp: 1, ten_sp: 'ODDO', gia_sp: 10000},
+            {ma_sp: 2, ten_sp: 'OAIA', gia_sp: 10000},
+            {ma_sp: 3, ten_sp: 'OAIA2', gia_sp: 10000},
+            {ma_sp: 4, ten_sp: 'OAIA3', gia_sp: 10000},
+            {ma_sp: 5, ten_sp: 'OAIA4', gia_sp: 10000},
+        ];
+
+        // Nhét phần cụm tr vào trong tbody có id là danh_sach
+        // document.querySelector('#danh_sach').innerHTML =
+        // `
+        //     <tr>
+        //         <td>${ds_dien_thoai[0].ma_sp}</td>
+        //         <td>${ds_dien_thoai[0].ten_sp}</td>
+        //     </tr>
+        //     <tr>
+        //         <td>${ds_dien_thoai[1].ma_sp}</td>
+        //         <td>${ds_dien_thoai[1].ten_sp}</td>
+        //     </tr>
+        // `;
+        // Khởi đầu bằng 1 nội dung rỗng
+        var noi_dung_danh_sach = '';
+        // Qua mỗi vòng lặp sẽ nối thêm vào 1 cặp <tr></tr>
+        for(i = 0; i < ds_dien_thoai.length; i++) {
+            noi_dung_danh_sach += `
+            <tr>
+                <td>${ds_dien_thoai[i].ma_sp}</td>
+                <td>${ds_dien_thoai[i].ten_sp}</td>
+                <td>${ds_dien_thoai[i].gia_sp} VND</td>
+            </tr>`;
+        }
+        // Sau khi thoát vòng for đã có đầy đủ danh sách dạng chuỗi
+        document.querySelector('#danh_sach').innerHTML =
+            noi_dung_danh_sach;
+
+
+    </script>
+</body>
+</html>

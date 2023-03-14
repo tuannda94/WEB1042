@@ -1,0 +1,38 @@
+<!-- buoi4_su_kien.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 4 Sự kiện</title>
+</head>
+
+<body>
+    <!-- Sự kiện sẽ được định nghĩa bằng tên thuộc tính ở thẻ -->
+    <!-- Giá trị thuộc tính chính là đoạn JS sẽ được chạy -->
+    <button onclick="
+        // ND trong này có thể viết rất nhiều dòng JS
+        // Chỉ khi nút được bấm thì mới gọi hàm này
+        bamNut(); // gọi hàm đã định nghĩa ở dưới
+    ">
+        Bấm vào đây
+    </button>
+    <div id="div" onclick="alert('Đã bấm vào div');">
+        Nội dung thẻ div
+    </div>
+    <script>
+        // phần script chỉ định nghĩa hàm,
+        // khi sự kiện được phát sẽ gọi hàm
+        function bamNut() {
+            if (document.querySelector('#div').innerHTML == '') {
+                document.querySelector('#div').innerHTML = 'ND Div';
+            } else {
+                document.querySelector('#div').innerHTML = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
