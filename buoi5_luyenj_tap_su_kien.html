@@ -1,0 +1,79 @@
+<!-- buoi5_luyenj_tap_su_kien.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 5</title>
+</head>
+<style>
+    .showimage {
+        text-align: center;
+    }
+    .buttons {
+        text-align: center;
+        margin-top: 24px;
+    }
+    .buttons button {
+        border-radius: 8px;
+        background-color: black;
+        padding: 8px;
+        border: 0;
+        color: white;
+    }
+</style>
+<body>
+    <div id="hien_thi_anh" class="showimage">
+        <img src="./anh/anh-1.jpg" alt="" width="500"
+            class="showimage__img">
+    </div>
+    <div class="buttons">
+        <button onclick="prev()">Quay lại</button>
+        <button onclick="next()">Tiếp theo</button>
+    </div>
+
+    <script>
+        var ds_anh = [
+            `<img src="./anh/anh-1.jpg" width="500">`,
+            `<img src="./anh/anh-2.jpg" width="500">`,
+            `<img src="./anh/anh-3.jpg" width="500">`,
+        ];
+        var vi_tri_anh_hien_tai = 0;
+        function prev() {
+            // Nếu quay ảnh về đến ảnh đầu thì dừng
+            if (vi_tri_anh_hien_tai >= 1) {
+                // Chỉ chạy vào đây khi quay về tới ảnh gần cuối
+                // Trừ 1 để lấy ảnh ở vị trí trước đó
+                var newImg = ds_anh[vi_tri_anh_hien_tai - 1];
+                // Gán giá trị mới cho vị trí hiện tại
+                vi_tri_anh_hien_tai--;
+                // Thay đổi hiển thị của phần div hiển thị ảnh
+                document.querySelector('#hien_thi_anh').innerHTML = newImg;
+            } else {
+                var newImg = ds_anh[ds_anh.length - 1];
+                vi_tri_anh_hien_tai = ds_anh.length - 1;
+                document.querySelector('#hien_thi_anh').innerHTML = newImg;
+            }
+        }
+
+        function next() {
+            // Nếu next ảnh đến ảnh cuối cùng thì cũng dừng
+            if (vi_tri_anh_hien_tai < ds_anh.length - 1) {
+                // Chỉ chạy vào đây khi next tới ảnh gần cuối
+                // Cộng 1 để lấy ảnh ở vị trí tiếp theo
+                var newImg = ds_anh[vi_tri_anh_hien_tai + 1];
+                // Gán giá trị mới cho vị trí hiện tại
+                vi_tri_anh_hien_tai++;
+                // Thay đổi hiển thị của phần div hiển thị ảnh
+                document.querySelector('#hien_thi_anh').innerHTML = newImg;
+            } else {
+                var newImg = ds_anh[0];
+                vi_tri_anh_hien_tai = 0;
+                document.querySelector('#hien_thi_anh').innerHTML = newImg;
+            }
+        }
+    </script>
+
+</body>
+</html>
