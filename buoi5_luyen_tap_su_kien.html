@@ -1,0 +1,74 @@
+<!-- buoi5_luyen_tap_su_kien.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 5 Luyện tập sự kiện</title>
+</head>
+<body>
+    <div>
+        <h6>Bài 1</h6>
+        <p>Có 1 nút bấm, Khi bấm sẽ hiển thị lên màn hình
+            Chẵn/Lẻ</p>
+        <div>
+            <button onclick="bai1()">
+                Bấm kiểm tra chẵn lẻ
+            </button>
+            <p id="bai1-kq"></p>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h6>Bài 2</h6>
+        <p>Slide ảnh + 2 nút Prev Next</p>
+        <div style="text-align: center;" id="hien_thi_anh">
+            <img src="./anh/anh-2.jpeg" width="300">
+        </div>
+        <div style="text-align: center;">
+            <button onclick="bai2Prev()">Prev</button>
+            <button onclick="bai2Next()">Next</button>
+        </div>
+    </div>
+    <script>
+        function bai1() {
+            var random_num = Math.round(Math.random() * 1000);
+            if (random_num % 2 == 0) {
+                return document.querySelector('#bai1-kq')
+                    .innerHTML = 'Chẵn';
+            }
+            return document.querySelector('#bai1-kq')
+                    .innerHTML = 'Lẻ';
+        }
+
+        // Định nghĩa ds các ảnh sẽ hiển thị
+        var ds_anh = [
+            `<img src="./anh/anh-1.jpeg" width="300">`, // 0
+            `<img src="./anh/anh-2.jpeg" width="300">`, // 1
+            `<img src="./anh/anh-3.jpeg" width="300">`, // 2
+        ];
+        var vi_tri = 1;
+        function bai2Prev() {
+            // Nếu chưa phải ảnh đầu tiên thì cho lùi tiếp
+            if (vi_tri > 0) {
+                vi_tri = vi_tri - 1;
+            } else {
+                vi_tri = ds_anh.length - 1;
+            }
+            document.querySelector('#hien_thi_anh').innerHTML =
+                ds_anh[vi_tri];
+        }
+        function bai2Next() {
+            // Nếu chưa phải ảnh cuối cùng thì cho tiến tiếp
+            if (vi_tri < ds_anh.length - 1) {
+                vi_tri = vi_tri + 1;
+            } else {
+                vi_tri = 0;
+            }
+            document.querySelector('#hien_thi_anh').innerHTML =
+                ds_anh[vi_tri];
+        }
+    </script>
+</body>
+</html>
