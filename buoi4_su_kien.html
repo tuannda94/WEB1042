@@ -1,0 +1,37 @@
+<!-- buoi4_su_kien.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 4 sự kiện</title>
+</head>
+
+<body>
+    <!-- Cấu hình sẵn việc lắng nghe sự kiện bằng
+        tên các sự kiện ở phần thẻ html
+        Tên sự kiện bắt đầu bởi từ on
+    -->
+    <!-- Code js sẽ chỉ chạy khi người dùng thực hiện
+    đúng hành vi đã định nghĩa, vd bấm là onclick -->
+    <button onclick="anHien()">
+        Bấm vào nút này
+    </button>
+    <div onmouseenter="alert('Đã di chuột vào')" id="div">
+        Nội dung thẻ div
+    </div>
+    <script>
+        function anHien() {
+            if (document.querySelector('#div').innerHTML == '') {
+                document.querySelector('#div').innerHTML =
+                    'Nội dung thẻ div';
+            } else {
+                document.querySelector('#div').innerHTML = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
