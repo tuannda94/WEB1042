@@ -1,0 +1,45 @@
+<!-- buoi_5_slider.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider ảnh</title>
+</head>
+<body>
+    <div id="hien_thi_anh">
+        <img src="./anh/anh-2.jpg" width="300">
+    </div>
+    <div>
+        <button onclick="prev()">Prev</button>
+        <button onclick="next()">Next</button>
+    </div>
+    <script>
+        var ds_anh = [
+            `<img src="./anh/anh-1.jpg" width="300">`, // 0
+            `<img src="./anh/anh-2.jpg" width="300">`, // 1
+            `<img src="./anh/anh-3.jpg" width="300">`, // 2
+        ];
+        var vi_tri = 1; // mặc định trên html đang là ảnh ở vị trí 1
+        function prev() {
+            if (vi_tri >= 1) {
+                vi_tri = vi_tri - 1; // gán gt mới cho vị trí để dùng tiếp
+            } else {
+                vi_tri = ds_anh.length - 1;
+            }
+            document.querySelector('#hien_thi_anh').innerHTML
+                = ds_anh[vi_tri];
+        }
+        function next() {
+            if (vi_tri < ds_anh.length - 1){
+                vi_tri = vi_tri + 1;
+            } else {
+                vi_tri = 0;
+            }
+            document.querySelector('#hien_thi_anh').innerHTML
+                = ds_anh[vi_tri];
+        }
+    </script>
+</body>
+</html>

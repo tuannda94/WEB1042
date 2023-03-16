@@ -1,0 +1,50 @@
+<!-- buoi_5_sukien.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Định nghĩa sự kiện chính là việc tạo sẵn
+    1 thuộc tính ở trên thẻ có tên là tên 1 sự kiện
+    => Giá trị của sự kiện đó là code js được thực thi
+    -->
+
+    <!-- onclick thể hiện việc người dùng bấm vào nó -->
+    <button onclick="anHienAnh()">
+        <!-- CV khi lắng nghe sự kiện click là gọi hàm -->
+        Bấm để hiển thị ảnh
+    </button>
+    <div id="div" onmouseenter="alert('Đã di chuột vào div')">
+        Nội dung thẻ div
+    </div>
+    <hr>
+    <div><button onclick="random()">Random</button></div>
+    <p id="kq">Kết quả</p>
+
+    <script>
+        function anHienAnh() {
+            var nd_div = '';
+            if (document.querySelector('#div').innerHTML == '') {
+                nd_div = `<img src='https://picsum.photos/200' width='200'>`;
+            }
+            document.querySelector('#div').innerHTML = nd_div;
+        }
+        function random () {
+            // console.log(Math.round(Math.random() * 100));
+            var ranom_number = Math.round(Math.random() * 100);
+            if (ranom_number % 2 == 0) {
+                document.querySelector('#kq').innerHTML = 'Chẵn';
+            } else {
+                document.querySelector('#kq').innerHTML = 'Lẻ';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ds-sp">
+    </ul>
+    <script>
+        var ds_sp = [
+            {ten: 'iphone', gia: 10000000},
+            {ten: 'samsung', gia: 12000000},
+        ];
+
+        var nd_sp = '';
+        for (i = 0; i < ds_sp.length; i++) {
+            nd_sp += '<li>' + ds_sp[i].ten + '</li>';
+        }
+        // nd_sp = `<li>${ds_sp[0].ten} - ${ds_sp[0].gia} </li><li>${ds_sp[1].ten} - ${ds_sp[1].gia} </li>`
+        document.querySelector('#ds-sp').innerHTML = nd_sp;
+    </script>
+</body>
+</html>
