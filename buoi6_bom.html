@@ -1,0 +1,60 @@
+<!-- buoi6_bom.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 6</title>
+</head>
+<body>
+    <button onclick="window.close()">Đóng cửa sổ</button>
+    <button onclick="
+        newWindow = window.open(
+            '',
+            '',
+            'width=200, height=100')"
+        >
+        Mở cửa sổ mới
+    </button>
+    <button onclick="newWindow.resizeTo(500, 500)" >
+        Thay đổi kích thước cửa sổ
+    </button>
+    <button onclick="window.print()">
+        Bấm để in nội dung trang
+    </button>
+    <button onclick="window.location.reload()">
+        Tải lại trang
+    </button>
+    <script>
+        // Đối tượng để js có thể hiểu trình duyệt đang hoạt động ntn
+        console.log(window);
+        // Thông tin chiều cao và chiều rộng của cửa sổ
+        console.log(window.innerHeight, window.innerWidth);
+        // Thông tin chiều cao và chiều rộng của thanh cuộn
+        console.log(window.scrollY, window.scrollX);
+
+
+        // TIMER
+        // setTimeout sẽ chạy 1 hàm không tên là tham số thứ 1
+        // sau 1 khoảng thời gian tính bằng ms ở tham số thứ 2
+        var timeout = window.setTimeout(function () {
+            document.write('<h1>Quảng cáo vừa xuất hiện</h1>');
+        }, 5000);
+        // Bao giờ click gọi hàm clearTime thì sẽ hết timeout
+        function clearTime () {
+            window.clearTimeout(timeout);
+        }
+
+        var interval = window.setInterval(function () {
+            document.write('<h1>Quảng cáo 5s 1 lần</h1>');
+        }, 1000);
+        // Bao giờ click gọi hàm clearInter thì sẽ hết setInterval
+        function clearInter () {
+            window.clearInterval(interval);
+        }
+
+
+    </script>
+</body>
+</html>

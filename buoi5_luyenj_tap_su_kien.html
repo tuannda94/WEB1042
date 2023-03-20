@@ -73,6 +73,14 @@
                 document.querySelector('#hien_thi_anh').innerHTML = newImg;
             }
         }
+
+        var inter = setInterval(function () {
+            next();
+        }, 1000);
+
+        function stop () {
+            clearInterval(inter);
+        }
     </script>
 
 </body>
