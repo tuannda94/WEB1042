@@ -15,11 +15,17 @@
         <button onclick="prev()">Prev</button>
         <button onclick="next()">Next</button>
     </div>
+    <div>
+        <button onclick="start()">BĐ chạy 2s 1 lần</button>
+        <button onclick="stop()">Dừng chạy ảnh</button>
+    </div>
     <script>
+        var thu_muc_luu_anh = './anh/';
+        // `<img src="./anh/anh-1.jpg" width="300">`, // 0
         var ds_anh = [
-            `<img src="./anh/anh-1.jpg" width="300">`, // 0
-            `<img src="./anh/anh-2.jpg" width="300">`, // 1
-            `<img src="./anh/anh-3.jpg" width="300">`, // 2
+            `anh-1.jpg`, // 0
+            `anh-2.jpg`, // 1
+            `anh-3.jpg`, // 2
         ];
         var vi_tri = 1; // mặc định trên html đang là ảnh ở vị trí 1
         function prev() {
@@ -28,8 +34,9 @@
             } else {
                 vi_tri = ds_anh.length - 1;
             }
+            var anh = `<img src="${thu_muc_luu_anh}${ds_anh[vi_tri]}" width="300">`
             document.querySelector('#hien_thi_anh').innerHTML
-                = ds_anh[vi_tri];
+                = anh;
         }
         function next() {
             if (vi_tri < ds_anh.length - 1){
@@ -37,8 +44,22 @@
             } else {
                 vi_tri = 0;
             }
+            var anh = `<img src="${thu_muc_luu_anh}${ds_anh[vi_tri]}" width="300">`
             document.querySelector('#hien_thi_anh').innerHTML
-                = ds_anh[vi_tri];
+                = anh;
+        }
+
+        // Định nghĩa 1 biến lưu giữ trạng thái chạy tự động
+        var interval;
+        function start () {
+            // Gán intevar = hành vi setInterval chạy tự động
+            interval = setInterval(function () {
+                next();
+            }, 2000);
+        }
+
+        function stop () {
+            clearInterval(interval);
         }
     </script>
 </body>

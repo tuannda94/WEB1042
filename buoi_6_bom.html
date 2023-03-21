@@ -1,0 +1,63 @@
+<!-- buoi_6_bom.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body>
+    <button onclick="window.close()">
+        Bấm để đóng cửa sổ
+    </button>
+    <button onclick="
+        // open('đường dẫn', '', 'cấu hình')
+        var newWindow = window.open(
+            'https://google.com',
+            '',
+            'width=300,height=500'
+        );
+    ">
+        Bấm để mở cửa sổ mới
+    </button>
+    <button onclick="
+    // Thay đổi kích thước của cửa sổ vừa mở
+        newWindow.resizeTo(500, 500)
+    ">
+        Thay đổi kích thước cửa sổ vừa mở
+    </button>
+    <button onclick="window.location.reload()">
+        Bấm để tải lại trang
+    </button>
+    <button onclick="window.print()">
+        Bấm để in
+    </button>
+
+    <script>
+        console.log(window);
+        console.log(window.name);
+        console.log(window.navigator, window.navigator.appName);
+        console.log(window.innerWidth, window.innerHeight);
+
+        // TIMER
+        // setTimeout(công việc sẽ chạy, thời gian ms);
+        var timeout = window.setTimeout(function () {
+            alert('Sau 5s đã chạy');
+        }, 5000);
+        // console.log(`Câu lệnh này ở dưới alert
+        // nhưng lại chạy trước`);
+        window.clearTimeout(timeout);
+
+        var inter = window.setInterval(function () {
+            window.document.write('ND setInterval');
+        }, 2000);
+        // Nếu muốn ngắt: gán setInterval cho 1 biến
+        // sau đó clearInterval biến đó
+        function stop () {
+            // Bao giờ gọi hàm stop() thì sẽ dừng
+            window.clearInterval(inter);
+        }
+    </script>
+</body>
+</html>
