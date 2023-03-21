@@ -1,0 +1,60 @@
+<!-- buoi6_bom.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 6</title>
+</head>
+<body onscroll="console.log(
+    window.innerHeight, window.scrollY)
+">
+    <button onclick="window.close()">
+        Bấm để đóng cửa sổ trình duyệt này
+    </button>
+    <button onclick="window.open()">
+        Bấm để mở thêm cửa sổ mới
+    </button>
+    <button onclick="window.print()">
+        Bấm để mở chức năng in nội dung HTML
+    </button>
+    <button onclick="window.location.reload()">
+        Bấm để tải lại trang này
+    </button>
+    <button onclick="window.location.replace(
+        'https://google.com'
+    )">
+        Bấm để đổi đường dẫn
+    </button>
+    <!-- history -->
+    <!-- <button onclick="window.history.go(
+    )">Chuyển trang</button> -->
+
+    <script>
+        console.log(window);
+        console.log(window.scrollX, window.scrollY);
+
+        // TIMER
+        // setTimeout sẽ chạy 1 lần nhóm lệnh trong tham số đầu tiên
+        // sau 1 khoảng thời gian ở tham số thứ 2 (ms)
+        window.setTimeout(function () {
+            // alert('Sau 2s chạy alert này');
+        }, 2000);
+        document.write('Câu lệnh dòng 44');
+
+        // setInterval sẽ chạy câu lệnh trong function sau
+        // mỗi khoảng thời gian ở tham số thứ 2
+        // Nếu muốn sau đó clear hay ngắt interval đi
+        // thì gán toàn bộ quá trình đó cho 1 biến
+        var interval = window.setInterval(function () {
+            document.write('<p>ND Interval</p>');
+        }, 3000);
+        // Sau đó clearInterval biến đó
+        function stop () {
+            // Khi hàm stop được gọi thì sẽ clear đi
+            window.clearInterval(interval);
+        }
+    </script>
+</body>
+</html>
