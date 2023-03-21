@@ -1,0 +1,66 @@
+<!-- buoi6_bom.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body onscroll="
+    console.log(window.innerHeight, window.scrollY);
+">
+    <button onclick="window.close()">
+        Đóng cửa sổ trình duyệt này
+    </button>
+    <button onclick="
+        window.open('https://google.com')
+    ">Mở cửa sổ tìm kiếm google
+    </button>
+    <button onclick="window.print()">
+        In nd cửa sổ hiện tại
+    </button>
+    <button onclick="window.location.reload()">
+        Tải lại trang hiện tại
+    </button>
+    <button onclick="
+        window.location.replace('https://google.com')
+    ">
+        Đổi đường dẫn hiện tại sang trang khác
+    </button>
+    <script>
+        console.log(location);
+        console.log(window);
+        // Thuộc tính hoặc phương thức con của window
+        // có thể k cần viết window. đằng trước
+        console.log(window.navigator, navigator);
+        // Chiều cao và chiều rộng của phần nd
+        console.log(window.innerHeight, window.innerWidth);
+        // vị trí của thanh cuộn dọc và ngang
+        console.log(window.scrollY, window.scrollX);
+
+        // TIMER
+        // setTimeout(công việc, thời gian sẽ chạy cv đó ms)
+        // Chỉ chạy công việc đó 1 lần
+        window.setTimeout(function () {
+            // alert('Dòng này chạy sau 5s');
+        }, 5000);
+        window.setTimeout(function () {
+            // alert('Dòng này chạy sau 3s');
+            document.write('Code viết sau nhưng lại chạy trước');
+        }, 3000);
+
+        // setInterval hoạt động như setTimeout
+        // mỗi 2s chạy 1 lần
+        // Nếu muốn dừng thì gán cụm câu lệnh vào 1 biến
+        var inter = window.setInterval(function () {
+            document.write('Mỗi 2s viết 1 lần');
+        }, 2000);
+        // Thực hiện clearInterval biến đó
+        function stopInter () {
+            // Khi nào hàm stopInter đc gọi thì dừng
+            window.clearInterval(inter);
+        }
+    </script>
+</body>
+</html>

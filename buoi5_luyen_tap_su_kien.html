@@ -30,6 +30,10 @@
             <button onclick="bai2Prev()">Prev</button>
             <button onclick="bai2Next()">Next</button>
         </div>
+        <div style="text-align: center;">
+            <button onclick="start()">Start</button>
+            <button onclick="stop()">Stop</button>
+        </div>
     </div>
     <script>
         function bai1() {
@@ -68,6 +72,20 @@
             }
             document.querySelector('#hien_thi_anh').innerHTML =
                 ds_anh[vi_tri];
+        }
+
+        // Khởi tạo biến ở bên ngoài để có thể dùng được
+        // trong cả 2 hàm
+        var inter;
+        function start() {
+            // Khởi tạo setInterval để chạy tự động hàm next
+            inter = setInterval(function () {
+                bai2Next();
+            }, 2000);
+        }
+        function stop() {
+            // clearInterval vừa định nghĩa bên trên
+            clearInterval(inter);
         }
     </script>
 </body>
