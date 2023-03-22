@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hi</title>
+    </head>
+    <body>
+        <h1>IT18306</h1>
+        <div>
+            <p id="the-p">Hello</p>
+            <p class="text">TEXT</p>
+            <a href="https://google.com">Link</a>
+        </div>
+    </body>
+
+    <script>
+        // ở HTML chỉ nhìn thấy thẻ <p id="the-p">Hello</p>
+        // Nhưng khi qua document và nhìn thì sẽ thấy:
+        console.log(
+            document.querySelector('#the-p'),
+            document.getElementById('the-p'),
+            document.getElementsByClassName('text'),
+            document.getElementsByTagName('p')
+            // document.querySelectorAll('#the-p')
+        );
+        // => 1 thẻ ở phần HTML ~ 1 đối tượng ở JS và chứa tất cả các thông tin mà HTML có
+        // => JS có thể đọc được tất cả những thông tin đó và thay đổi nó
+
+        var theP = document.querySelector('#the-p');
+        theP.innerHTML = 'ND mới của thẻ p';
+        // theP.style = 'color: blue; font-size: 40px;';
+        theP.style.color = 'yellow';
+        theP.style.fontSize = '40px';
+
+        theP.className = 'border';
+        var thePBorder = document.querySelector('.border');
+        // thePBorder.style = 'border: 1px solid;';
+        thePBorder.style.border = '1px solid red';
+    </script>
+</html>
