@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<style>
+    .active {
+        border: 1px solid red;
+        background: #cdeef8;
+        color: red;
+    }
+</style>
+<body>
+    <p
+        id="the-p"
+        class="text"
+        style="color: red"
+        onmouseenter="diChuotVao()"
+        onmouseleave="diChuotRa()"
+    >ND thẻ P</p>
+    <script>
+        // Lấy ra đối tượng thẻ có id là the-p
+        console.log(document.querySelector('#the-p'));
+        // Lấy ra danh sách đối tượng thẻ có id là the-p
+        console.log(document.querySelectorAll('#the-p'));
+
+        // Để tương tác với đối tượng thẻ tìm được dễ hơn
+        var theP = document.querySelector('#the-p');
+        // Đã tìm thấy đối tượng thì có thể lấy thông tin
+        // các thuộc tính trong đối tượng thẻ đó ra
+        console.log(
+            theP,
+            theP.innerHTML,
+            theP.className,
+            theP.nodeName
+        );
+        // Hoặc gán giá trị mới cho các đối tượng thẻ đó
+        theP.innerHTML = 'ND Mới được gán';
+
+        function diChuotVao() {
+            theP.className = 'text active';
+        }
+        function diChuotRa() {
+            theP.className = 'text';
+        }
+    </script>
+</body>
+</html>

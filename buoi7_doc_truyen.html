@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đọc truyện</title>
+</head>
+<style>
+    .chu-nho { font-size: 8px;}
+    .chu-to {font-size: 16px;}
+    .mau-xanh {color: blue;}
+    .mau-do {color: red;}
+</style>
+<body>
+    <div>Tên truyện</div>
+    <div class="tuy-chinh">
+        <div>
+            <span>Kích cỡ</span>
+            <button onclick="chuNho()"
+                class="chu-nho">A</button>
+            <button onclick="chuTo()"
+                class="chu-to">A</button>
+        </div>
+        <div>
+            <span>Màu sắc</span>
+            <button onclick="mauXanh()"
+                class="mau-xanh">Xanh</button>
+            <button onclick="mauDo()"
+                class="mau-do">Đỏ</button>
+        </div>
+    </div>
+    <div class="noi-dung">NOI DUNG</div>
+</body>
+<script>
+    // Mong muốn khi click vào các nút ở tuỳ chỉnh
+    // thì sẽ tương tác với phần nội dung
+    // 1. Tìm ra phần thẻ nội dung để tương tác vào
+    var nd = document.querySelector('.noi-dung');
+    var fontSize = 16;
+    // 2. Định nghĩa các hàm thực thi sự kiện
+    function chuNho() {
+        fontSize--;
+        // nd.style = `font-size: ${fontSize}px;`;
+        nd.style.fontSize = `${fontSize}px`;
+    }
+    function chuTo() {
+        fontSize++;
+        // nd.style = `font-size: ${fontSize}px;`;
+        nd.style.fontSize = `${fontSize}px`;
+    }
+    function mauXanh() {
+        // nd.style = `color: blue;`;
+        nd.style.color = 'blue';
+    }
+    function mauDo() {
+        // nd.style = `color: red;`;
+        nd.style.color = 'red';
+    }
+    console.log(nd.style);
+</script>
+</html>
