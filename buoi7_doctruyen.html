@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>đọc truyện</title>
+</head>
+<body>
+    <div>
+        <div class="ten-truyen">TÊN TRUYỆN</div>
+        <div class="cau-hinh">
+            <div>
+                <span>Kích cỡ</span>
+                <!-- Khi bấm btn này sẽ nhỏ chữ nội dung -->
+                <button onclick="chuNho()" class="chu-nho">A</button>
+                <!-- Khi bấm btn này sẽ to chữ nội dung -->
+                <button onclick="chuTo()" class="chu-to">A</button>
+            </div>
+            <div>
+                <span>Màu chữ</span>
+                <!-- Khi bấm btn này sẽ xanh chữ nội dung -->
+                <button onclick="chuXanh()" class="chu-xanh">Xanh</button>
+                <!-- Khi bấm btn này sẽ đỏ chữ nội dung -->
+                <button onclick="chuDo()" class="chu-do">Do</button>
+            </div>
+        </div>
+        <div class="noi-dung">
+            NỘI DUNG
+        </div>
+    </div>
+</body>
+<style>
+    .ten-truyen, .cau-hinh {
+        text-align: center;
+    }
+    .chu-nho {
+        font-size: 8px;
+    }
+    .chu-to {
+        font-size: 16px;
+    }
+    .chu-xanh {
+        color: blue;
+    }
+    .chu-do {
+        color: red;
+    }
+</style>
+<script>
+    // Tìm ra phần nội dung cần thay đổi style
+    var nd = document.querySelector('.noi-dung');
+    // Đặt kích thước mặc định của chữ hiện tại
+    var size = 14;
+
+    // Thực hiện hàm khi bấm nút và gán style font-size mới
+    function chuNho() {
+        size--;
+        // nd.style = `font-size: ${size}px`;
+        nd.style.fontSize = `${size}px`;
+    }
+    function chuTo() {
+        size++;
+        // nd.style = `font-size: ${size}px`;
+        nd.style.fontSize = `${size}px`;
+    }
+    function chuXanh() {
+        // nd.style = `color: blue`;
+        nd.style.color = 'blue';
+    }
+    function chuDo() {
+        // nd.style = `color: red`;
+        nd.style.color = 'red';
+    }
+    console.log(nd.style);
+</script>
+</html>

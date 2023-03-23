@@ -1,0 +1,52 @@
+<!-- buoi7_dom.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hi</title>
+    </head>
+
+    <body>
+        <h1></h1>
+        <div>
+            <p id="the-p">Hello</p>
+            <button onclick="doiStyle()">
+                Thay đổi style thẻ P bằng style
+            </button>
+            <button onclick="doiClass()">
+                Thay đổi style thẻ P bằng class
+            </button>
+            <a href="https://google.com">Link</a>
+        </div>
+    </body>
+    <script>
+        // Lấy ra 1 đối tượng thẻ có id là the-p
+        // console.log(document.querySelector('#the-p'));
+        // Lấy ra 1 danh sách thẻ có id là the-p
+        // console.log(document.querySelectorAll('#the-p'));
+
+        // Tìm ra đối tượng thẻ p và gán giá trị đó
+        // cho biến theP
+        var theP = document.querySelector('#the-p');
+        // console.log(theP.innerHTML);
+        // // Tìm ra đối tượng => Thay đổi giá trị thuộc tính
+        // theP.innerHTML = 'abc';
+        // console.log(theP.innerHTML);
+        // theP.style = 'color: red;border: 1px solid blue;';
+        // theP.className = 'text-border';
+        function doiStyle() {
+            theP.style = 'color: blue; font-style: italic';
+        }
+        function doiClass() {
+            theP.className = 'border';
+        }
+    </script>
+    <style>
+        .border {
+            border: 1px solid red;
+            border-radius: 8px;
+        }
+    </style>
+</html>
