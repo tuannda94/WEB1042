@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 8</title>
+</head>
+<style>
+    .text {
+        font-size: 30px;
+        font-style: italic;
+    }
+    .text-bold {
+        font-weight: bold;
+    }
+</style>
+<body>
+    <p class="text">ND 123123123 buổi 8</p>
+    <!-- <p class="text">ND buổi 8</p> -->
+    <button onclick="removeBold()">Click để bỏ bold</button>
+
+
+    <script>
+        // Tìm ra thẻ p có class là text
+        // Nếu dùng querySelector thì luôn trả về duy nhất 1 đối tượng thẻ
+        // document.querySelector('p');
+        // document.querySelector('.text');
+        // Nếu dùng getElementsByTagName hoặc getElementsByClassName thì trả
+        // về 1 ds thẻ, và lấy ra phần tử đầu tiền [0]
+        var doiTuongThe = document.getElementsByClassName('text')[0];
+        // Thêm trước id cho thẻ p có class là text
+        // setAttribute(tên thuộc tính, giá trị)
+        doiTuongThe.setAttribute('id', 'the-p');
+        // Sử dụng id đó để tìm lại đối tượng thẻ vừa rồi, sau đó thêm class
+        var dtTheId = document.getElementById('the-p');
+        console.log(doiTuongThe, dtTheId);
+        // Thêm 1 class mới vào cho class đang có chứ k ghi đè
+        dtTheId.classList.add('text-bold');
+
+        //*** Định nghĩa sự kiện ngay trên phần HTML
+        function removeBold() {
+            dtTheId.classList.remove('text-bold');
+        }
+
+        //*** Làm mọi thứ chỉ bằng JS
+        // Tự tạo thẻ bằng JS, thêm ND vào bằng JS, thêm sự kiện bằng JS
+        //  Tạo thẻ bằng JS
+        var thePMoi = document.createElement('p');
+        thePMoi.innerHTML = dtTheId.innerHTML;
+        thePMoi.classList = dtTheId.classList;
+        thePMoi.setAttribute('id', 'the-p-moi');
+        // Đưa thẻ vừa tạo vào trong phần hiển thị của body
+        // document.querySelector('body').appendChild(thePMoi);
+        document.body.appendChild(thePMoi);
+
+        var theBtnMoi = document.createElement('button');
+        theBtnMoi.innerHTML = 'Click để bỏ bold';
+        theBtnMoi.onclick = function () {
+            thePMoi.classList.remove('text-bold');
+        }
+        document.body.appendChild(theBtnMoi);
+        // createElement và appendChild sẽ đi cùng nhau
+        // Chỉ appendChild được đối tượng thẻ tạo ra bằng createElement
+        // Ngoài việc viết sẵn sự kiện ở thẻ thì có thể thêm thẳng sự kiện
+        // vào 1 đối tượng thẻ ở JS
+    </script>
+</body>
+</html>
