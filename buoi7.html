@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/main.js">
+        
+    </script>
+</head>
+<body>
+    <p id="test">Nội dung 1</p>
+    <div class="ND">Nội dung 2</div>
+    <button onclick="mauXanh()">Màu xanh </button>
+    <button onclick="mauDo()">Màu Đỏ</button>
+    <div class="Nd1">Chào mừng bạn đến với trang wed của chúng tôi </div>
+    <button onclick="mauvang()">Chào Mừng</button>
+   <script>
+    //let a= document.querySelector('#test');
+    //console.log(a.style);
+    //a.style.color='red';
+    // tìm ra nội dung cần thay đổi 
+    //let a=document.querySelector('.ND')
+    //console.log(a);
+    //a.style.color='blue';
+    //function mauXanh(){
+        // a.style.color= 'red';
+
+    //}  
+    //function mauDo(){
+       // a.style.color='blue';
+    //}
+    let a = document.querySelector('.Nd1');
+    
+    function mauvang(){
+        a.style.color='red';
+        a.style.fontSize='20px';
+        a.innerHTML='haha';
+    }
+    a.innerHTML='hihi';
+    console.log(a.innerHTML);
+
+   </script>
+</body>
+</html>

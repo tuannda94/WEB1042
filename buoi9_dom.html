@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .text-bold {
+        font-weight: bold;
+    }
+</style>
+<body>
+    <p
+        id="the-p"
+        class="text"
+        style="color: red; border: 1px solid;"
+    >
+        ND Thẻ P
+    </p>
+    <button onclick="removeBold()">Bỏ bold ở thẻ P</button>
+
+    <script>
+        // JS nhìn vào thẻ p bên trên như sau
+        // để tìm được thẻ đó, sẽ dựa vào những thông tin định danh như id, class, tên thẻ
+        // document.querySelector('#the-p') hoặc '.text' hoặc 'p'
+        // document.getElementById('the-p')
+        /*
+            var p = {
+                id: 'the-p',
+                className: 'text', // tương ứng thuộc tính class ở thẻ HTML
+                style: 'color: red; border: 1px solid;', // k hợp lý
+                style: {
+                    color: '',
+                    border: '',
+                    background: '',
+                    ...
+                }
+                innerHTML: 'ND Thẻ P',
+                innerText: 'ND Thẻ P',
+                onclick: ....
+            }
+        */
+        var theP = document.querySelector('#the-p'); // đối tượng thẻ p vừa tìm được
+        theP.innerHTML = 'ND Mới thẻ P';
+        theP.className = 'text-new-class';
+        theP.style = 'background: yellow';
+        // Coi style như là 1 đối tượng con chứa tất cả các thuộc tính CSS
+        // Đây là cách dùng style hợp lý. Và chú ý tên thuộc tính CSS viết dưới dạng camelCase
+        theP.style.fontSize = '30px';
+        theP.style.backgroundColor = 'blue';
+        theP.style.color = 'red';
+        console.log(theP);
+
+        // Các cách để có thể tìm ra 1 thẻ hoặc 1 nhóm đối tượng thẻ để tương tác với nó bằng JS
+        var dsTheClass = document.getElementsByClassName('text');
+        var dsTheTag = document.getElementsByTagName('p')[0];
+        var dsTheAll = document.querySelectorAll('.text');
+        // console.log(dsTheClass, dsTheTag, dsTheAll);
+
+        // Để class hoạt động được đúng như cách mong muốn: k bị ghi đè, thì sẽ sử dụng classList
+        theP.classList.add('text-bold');
+
+        function removeBold() {
+            theP.classList.remove('text-bold');
+        }
+        // Lý do tại sao lại cần làm những điều bên trên bằng JS mà không phải bằng HTML?
+
+        // document.createElement // Tạo ra 1 đối tượng thẻ bên trong document hoặc ở trong 1 đối tượng thẻ khác
+        // Tạo ra 1 thẻ p và nhận được kq là 1 đối tượng thẻ p mới
+        var thePMoi = document.createElement('p');
+        thePMoi.innerHTML = 'ND the P';
+        thePMoi.id = 'the-p-moi';
+        thePMoi.className = 'text';
+        thePMoi.style = 'color: red; border: 1px solid;';
+        thePMoi.classList.add('text-bold');
+        // document.appendChild // Đưa phần đối tượng thẻ vừa tạo vào trong document hoặc đối tượng thẻ khác
+        // Hiển thị đối tượng thẻ vừa tạo ra phần HTML bằng cách appendChild đối tượng đó
+        // Muốn hiển thị ở đâu thì tìm ra chỗ đó và append vào
+        document.querySelector('body').appendChild(thePMoi);
+        // document.body.appendChild(thePMoi);
+
+        var theBtnMoi = document.createElement('button');
+        theBtnMoi.innerHTML = 'Click vào để bỏ bold';
+        // Có 2 cách để định nghĩa sự kiện tương tác với thẻ
+        // Cách 1: định nghĩa trực tiếp ở HTML
+        // Cách 2: Đính vào trong đối tượng thẻ ở phần JS
+        theBtnMoi.onclick = function () {
+            // Đoạn JS được chạy khi bấm vào thẻ button mới này
+            thePMoi.classList.remove('text-bold');
+        }
+        document.body.appendChild(theBtnMoi);
+    </script>
+</body>
+</html>
