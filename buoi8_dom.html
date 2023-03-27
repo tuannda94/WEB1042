@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buoi 8 DOM</title>
+</head>
+    <style>
+        .text {
+            font-size: 30px;
+            font-style: italic;
+        }
+        .text-bold {font-weight: bold;}
+    </style>
+<body>
+    <p id="the-p" class="text">ND thẻ</p>
+
+    <script>
+        function query(chuoi_tim_the) {
+            return document.querySelector(chuoi_tim_the);
+        }
+        // document.querySelector('#the-p') ~ query('#the-p')
+        function queryAll(chuoi_tim_the) {
+            return document.querySelectorAll(chuoi_tim_the);
+        }
+        // Muốn tương tác với phần nào thì tìm ra phần đó trước
+        // console.log(document.querySelectorAll('#the-p'));
+        var theP = document.querySelector('#the-p');
+        // Gán className mới sẽ ghi đè class cũ
+        // theP.className = 'text-bold'; // text -> text-bold
+        // Nếu muốn thêm mà k làm mất class cũ thì dùng classList
+        theP.classList.add('text-bold');
+        // theP.classList.remove('text');
+
+        // Định nghĩa sự kiện ngay ở trong JS cho đối tượng thẻ
+        theP.onclick = function () {
+            // Khi sự kiện onclick được phát ở đối tượng theP
+            // thì sẽ thực thi khối lệnh bên trong function này
+            alert(123123);
+            theP.innerHTML = 'ND Mới sau khi bấm';
+        }
+
+        // Thao tác về tạo đối tượng thẻ và hiển thị lên HTML
+        // mà không đụng chạm gì vào phần HTML gốc
+        // 1. Tạo ra đối tượng thẻ bằng createElement
+        var thePMoi = document.createElement('p'); // tên thẻ
+        thePMoi.id = 'the-p-moi';
+        thePMoi.className = 'text text-bold';
+        thePMoi.innerHTML = 'ND Thẻ p mới';
+        thePMoi.onclick = function () {alert('Bấm vào thẻ mới');}
+        // 2. Đưa phần đối tượng thẻ vừa tạo lên trang HTML bằng
+        // appendChild, chú ý cần biết là đưa vào đâu
+        query('body').appendChild(thePMoi);
+
+    </script>
+</body>
+</html>
