@@ -1,0 +1,55 @@
+<!-- buoi8_dom.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 8</title>
+</head>
+<style>
+    .text {font-size: 30px; font-style: italic;}
+    .text-bold {font-weight: bold;}
+</style>
+<body>
+    <p id="the-p" class="text">ND Thẻ</p>
+    <button onclick="inDam()">Cho chữ in đậm</button>
+    <script>
+        var theP = document.querySelector('#the-p');
+        theP.onclick = function () {
+            // Định nghĩa sự kiện ở đây sẽ chạy tất cả các
+            // lệnh trong function không tên này khi thực thi
+            alert(123123);
+        };
+        // Sử dụng className sẽ ghi đè class cũ đang có
+        // theP.className = 'text-bold';
+        // Sử dụng classList
+        function inDam() {theP.classList.add('text-bold');}
+        // theP.classList.remove('text');
+
+        console.log(
+            document.querySelector('#the-p'),
+            document.querySelectorAll('.text')
+        );
+        console.log(
+            document.getElementById('the-p'),
+            document.getElementsByClassName('text'),
+            document.getElementsByTagName('p')
+        );
+
+        // Quản lý thành phần HTML bằng JS
+        // 1. Tạo ra đối tượng thẻ bằng JS
+        // 1.1 Tạo ra đối tượng thẻ trong phần HTML đang có
+        var thePMoi = document.createElement('p');
+        // 1.2 Gán các giá trị mới phù hợp vào nó
+        thePMoi.id = 'the-p-moi';
+        thePMoi.className = 'text';
+        thePMoi.innerHTML = 'ND Thẻ P mới';
+        thePMoi.onclick = function (){alert(123123)};
+
+        // 2. Đưa đối tượng thẻ đó lên màn hình HTML
+        // 2.1 Xác định được là đưa vào đâu
+        document.querySelector('body').appendChild(thePMoi);
+    </script>
+</body>
+</html>
