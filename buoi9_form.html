@@ -1,0 +1,69 @@
+<!-- buoi9.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 9 Form</title>
+</head>
+<body>
+    <form action="" method="">
+        <div>
+            <label for="ten">Họ tên</label>
+            <div><input name="name" id="ten" placeholder="Nhập tên"></div>
+            <div><p id="loi-ten"></p></div>
+        </div>
+        <div>
+            <label for="tuoi">Tuổi</label>
+            <div>
+                <input id="tuoi" type="number" placeholder="Nhập tuổi">
+            </div>
+            <div><p id="loi-tuoi"></p></div>
+        </div>
+        <div>
+            <label for="yeu-cau">Yêu cầu</label>
+            <div>
+                <textarea name="" id="yeu-cau" cols="20" rows="5"></textarea>
+            </div>
+        </div>
+        <!-- Ngăn hành vi submit form bằng cách đổi type của button -->
+        <!-- Như vậy mới có thể sử dụng JS để kiểm soát dữ liệu -->
+        <div><button type="button" id="gui">Gửi</button></div>
+    </form>
+
+    <script>
+        function query (gia_tri) {
+            return document.querySelector(gia_tri);
+        }
+        var btnGui = query('#gui');
+        btnGui.onclick = function () {
+            // Khi bấm nút gửi sẽ bđ tìm ra thẻ input
+            var inpTen = query('#ten');
+            var loiTen = query('#loi-ten');
+            // Lấy giá trị hiện tại của nó là thuộc tính value
+            if (!inpTen.value) {
+                loiTen.innerHTML = 'Vui lòng nhập tên!';
+                loiTen.style.color = 'red';
+            } else if (inpTen.value.length <= 10 || inpTen.value.length >= 32) {
+                // Kiểm tra tên cần phải > 10 ký tự và < 32 ký tự
+                loiTen.innerHTML = 'Độ dài tên phải > 10 và < 32 ký tự!';
+            } else {
+                loiTen.innerHTML = '';
+            }
+
+            var inpTuoi = query('#tuoi');
+            var loiTuoi = query('#loi-tuoi');
+            // Tuổi > 0 và < 150
+            if (!inpTuoi.value) {
+                loiTuoi.innerHTML = 'Vui lòng nhập tuổi!';
+                loiTuoi.style.color = 'red';
+            } else if (+inpTuoi.value <= 0 || +inpTuoi.value >= 150) {
+                loiTuoi.innerHTML = 'Độ tuổi phải > 0 và < 150!';
+            } else {
+                loiTuoi.innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>
