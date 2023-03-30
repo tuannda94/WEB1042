@@ -1,0 +1,73 @@
+<!-- buoi10_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 10 Form</title>
+</head>
+<body>
+    <form action="" method="">
+        <div>
+            <label for="ten">Họ tên</label>
+            <div><input name="username" id="ten"></div>
+            <p id="loi_ten"></p>
+        </div>
+        <div>
+            <label for="sdt">Số điện thoại</label>
+            <div><input name="phone" id="sdt"></div>
+            <p id="loi_sdt"></p>
+        </div>
+        <div>
+            <label for="yeu_cau">Yêu cầu</label>
+            <div><textarea name="content" id="yeu_cau" cols="20" rows="5">
+            </textarea></div>
+        </div>
+        <!-- JS cần chặn trước việc gửi dữ liệu form đến server -->
+        <!-- để ktra.  -->
+        <!-- Đổi type của button từ submit -> button -->
+        <div><button type="button" id="gui">Gửi</button></div>
+    </form>
+
+    <script>
+        function query(chuoi) {
+            return document.querySelector(chuoi);
+        }
+        // Sử dụng JS bắt sự kiện bấm vào nút gửi để kiểm tra
+        // dữ liệu hiện tại trên các ô nhập
+        // var button = document.querySelector('#gui');
+        var btnGui = query('#gui');
+        btnGui.onclick = function () {
+            // Khi bấm gửi sẽ lấy giá trị các ô nhập trong form ra ktra
+            var inpTen = query('#ten');
+            console.log(inpTen.value);
+
+            var loiTen = query('#loi_ten');
+            if (inpTen.value == '') {
+                loiTen.innerHTML = 'Vui lòng nhập tên!';
+                loiTen.style.color = 'red';
+            } else if (inpTen.value.length <= 8 || inpTen.value.length >= 64) {
+                loiTen.innerHTML = 'Tên có độ dài > 8 và < 64 ký tự!';
+            } else {
+                loiTen.innerHTML = '';
+            }
+
+            // SDT bắt buộc nhập, là 10 số, bắt đầu bằng số 0
+            var inpSDT = query('#sdt');
+            var sdtVal = inpSDT.value;
+            console.log(sdtVal, +sdtVal, isNaN(+sdtVal))
+            var loiSDT = query('#loi_sdt');
+            if (sdtVal == '') {
+                loiSDT.innerHTML = 'Vui lòng nhập SDT!';
+            } else if (sdtVal.length != 10 || isNaN(+sdtVal) || sdtVal[0] != 0) {
+                loiSDT.innerHTML = 'Vui lòng nhập đúng định dạng SDT!';
+            } else {
+                loiSDT.innerHTML = '';
+            }
+
+            // Yêu cầu bắt buộc nhập, độ dài > 50 ký tự
+        }
+    </script>
+</body>
+</html>
