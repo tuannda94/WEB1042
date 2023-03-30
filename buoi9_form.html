@@ -1,0 +1,73 @@
+<!-- buoi9_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 9</title>
+</head>
+<body>
+    <form action="" method="">
+        <div>
+            <label for="ten_tk">Tên tài khoản</label>
+            <div><input required name="username" id="ten_tk"></div>
+            <p id="loi_ten_tk"></p>
+        </div>
+        <div>
+            <label for="mat_khau">Mật khẩu</label>
+            <div><input required name="password" id="mat_khau"></div>
+            <p id="loi_mk"></p>
+        </div>
+        <div>
+            <label for="nl_mat_khau">Nhập lại mật khẩu</label>
+            <div><input name="repassword" id="nl_mat_khau"></div>
+            <p id="loi_nlmk"></p>
+        </div>
+        <!-- Chặn việc gửi form bằng HTML -->
+        <!-- Chuyển type của button từ submit về loại khác -->
+        <div><button type="button" id="luu">Lưu</button></div>
+    </form>
+    <script>
+        function query (chuoi_thong_tin) {
+            return document.querySelector(chuoi_thong_tin);
+        }
+        // Sau khi chặn việc gửi form bằng HTML
+        // thì cần bắt được hành vi gửi của người dùng bằng click
+        // var btnLuu = document.querySelector('#luu');
+        var btnLuu = query('#luu');
+        btnLuu.onclick = function () {
+            // Sau khi bấm lưu sẽ phải lấy đc nd người dùng nhập để ktra
+            var inpTenTK = query('#ten_tk');
+            var inpTenTKValue = inpTenTK.value;
+            // Kiểm tra bắt buộc nhập tên tài khoản
+            var loiTenTK = query('#loi_ten_tk');
+            if (inpTenTKValue == '') {
+                loiTenTK.innerHTML = 'Vui lòng nhập tên tài khoản!';
+                loiTenTK.style.color = 'red';
+            } else if (inpTenTKValue.length <= 8 || inpTenTKValue.length >= 32) {
+                loiTenTK.innerHTML = 'Tên TK > 8 và < 32 ký tự!';
+            } else {
+                loiTenTK.innerHTML = '';
+            }
+
+            // Kiểm tra mật khẩu
+            var inpMK = query('#mat_khau');
+            var inpMKValue = inpMK.value;
+            var loiMK = query('#loi_mk');
+
+            var inpNLMK = query('#nl_mat_khau');
+            var inpNLMKValue = inpNLMK.value;
+            var loiNLMK = query('#loi_nlmk');
+
+            if (inpMKValue != inpNLMKValue) {
+                loiNLMK.innerHTML = 'Mật khẩu vừa nhập không trùng khớp!';
+            } else {
+                loiNLMK.innerHTML = '';
+            }
+
+
+        }
+    </script>
+</body>
+</html>
