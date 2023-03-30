@@ -1,0 +1,74 @@
+<!-- buoi9_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 9 Form</title>
+</head>
+<body>
+    <form action="" method="">
+        <div>
+            <label for="ten">Họ tên</label>
+            <div><input name="username" id="ten"></div>
+            <p id="loi_ten"></p>
+        </div>
+        <div>
+            <label for="sdt">SDT</label>
+            <div><input name="phone" id="sdt"></div>
+            <p id="loi_sdt"></p>
+        </div>
+        <div>
+            <label for="noi_dung">Nội dung</label>
+            <div><input name="content" id="noi_dung"></div>
+        </div>
+        <!-- Chặn không cho gửi đi tới phía server -->
+        <!-- Chuyển type 'submit' thành 'button' -->
+        <div><button type="button" id="gui">Gửi</button></div>
+    </form>
+    <script>
+        // Dùng JS để đọc dữ liệu ở các ô nhập trong form
+        // Kiểm soát việc báo lỗi khi người dùng click Gửi
+        function query(chuoi) {
+            return document.querySelector(chuoi);
+        }
+        // Khi bấm gửi sẽ lấy data và kiểm tra
+        // var btnGui = document.querySelector('#gui');
+        var btnGui = query('#gui');
+        btnGui.onclick = function () {
+            // Lấy dữ liệu từ các ô input
+            var inpTen = query('#ten');
+            var loiTen = query('#loi_ten');
+            if (inpTen.value == '') {
+                loiTen.innerHTML = 'Vui lòng nhập tên!';
+                loiTen.style.color = 'red';
+            } else if (
+                inpTen.value.length < 6 ||
+                inpTen.value.length > 64
+            ) {
+                loiTen.innerHTML = 'Tên phải từ 6 đến 64 ký tự!';
+            } else {
+                loiTen.innerHTML = '';
+            }
+            // Tên: tối thiểu 6 ký tự, tối đa 64 ký tự
+            // SDT: Yêu cầu bắt buộc nhập, 10 số, bđ số 0
+            var inpSDT = query('#sdt');
+            var loiSDT = query('#loi_sdt');
+            if (inpSDT.value == '') {
+                loiSDT.innerHTML = 'Vui lòng nhập sdt!';
+                loiSDT.style.color = 'red';
+            } else if (
+                inpSDT.value.length != 10 ||
+                isNaN(+inpSDT.value) == true ||
+                inpSDT.value[0] != 0
+            ) {
+                loiTen.innerHTML = 'SDT không đúng định dạng!';
+            } else {
+                loiTen.innerHTML = '';
+            }
+            // Nội dung: tối thiểu 50 ký tự
+        }
+    </script>
+</body>
+</html>
