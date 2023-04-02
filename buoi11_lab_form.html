@@ -1,0 +1,120 @@
+<!-- Chữa lab validate form -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .loi {color: red;}
+</style>
+<body>
+    <form action="" onsubmit="return kiemTraForm()">
+        <div>
+            <label for="ten">Họ tên <span class="loi">*</span></label>
+            <div><input id="ten"></div>
+            <p id="loi-ten" class="loi"></p>
+        </div>
+        <div>
+            <label for="sdt">SDT <span class="loi">*</span></label>
+            <div><input id="sdt"></div>
+            <p id="loi-sdt" class="loi"></p>
+        </div>
+        <div>
+            <label for="email">Email <span class="loi">*</span></label>
+            <div><input id="email"></div>
+            <p id="loi-email" class="loi"></p>
+        </div>
+        <div>
+            <label for="dc">Địa chỉ <span class="loi">*</span></label>
+            <div><input id="dc"></div>
+            <p id="loi-dc" class="loi"></p>
+        </div>
+        <div>
+            <label for="gt">Giới tính <span class="loi">*</span></label>
+            <div>
+                <select name="" id="gt">
+                    <option value="">Chọn giới tính</option>
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+            </div>
+            <p id="loi-gt" class="loi"></p>
+        </div>
+        <div><button>Gửi</button></div>
+    </form>
+    <script>
+        function query(chuoi) {return document.querySelector(chuoi)};
+
+        function kiemTraForm() {
+            var khongCoLoi = true;
+            var inpTen = query('#ten');
+            var loiTen = query('#loi-ten');
+            var tenVl = inpTen.value;
+            if  (tenVl == '' || tenVl.length < 8 || tenVl.length > 64) {
+                loiTen.innerHTML = 'Lỗi tên!';
+                khongCoLoi = false;
+            } else {
+                loiTen.innerHTML = '';
+            }
+
+            var inpSDT = query('#sdt');
+            var loiSDT = query('#loi-sdt');
+            var sdtVl = inpSDT.value;
+            // Lấy ra chữ cái đầu tiên trong chuỗi [0]
+            if  (sdtVl == '' || sdtVl.length != 10 || sdtVl[0] != 0) {
+                loiSDT.innerHTML = 'Lỗi sdt!';
+                khongCoLoi = false;
+            } else {
+                loiSDT.innerHTML = '';
+            }
+
+            var inpEmail = query('#email');
+            var loiEmail = query('#loi-email');
+            var emailVl = inpEmail.value;
+            if  (
+                emailVl == '' ||
+                emailVl.length < 8 ||
+                emailVl.length > 64 ||
+                emailVl[0] == '@' || emailVl[emailVl.length - 1] == '@'
+            ) {
+                loiEmail.innerHTML = 'Lỗi email!';
+                khongCoLoi = false;
+            } else {
+                loiEmail.innerHTML = '';
+            }
+
+            var inpDC = query('#dc');
+            var loiDC = query('#loi-dc');
+            var dcVl = inpDC.value;
+            if  (
+                dcVl == '' ||
+                dcVl.length <= 20
+            ) {
+                loiDC.innerHTML = 'Lỗi dc!';
+                khongCoLoi = false;
+            } else {
+                loiDC.innerHTML = '';
+            }
+
+            var inpGT = query('#gt');
+            var loiGT = query('#loi-gt');
+            var gtVl = inpGT.value;
+            if  (gtVl == '') {
+                loiGT.innerHTML = 'Lỗi gt!';
+                khongCoLoi = false;
+            } else {
+                loiGT.innerHTML = '';
+            }
+
+            return khongCoLoi;
+
+
+            // Nếu gặp lỗi cú pháp hoặc giá trị ở trên thì sẽ vẫn bị gửi đi
+            // vì k chạy được đến return
+        }
+    </script>
+</body>
+</html>

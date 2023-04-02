@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 10 Form</title>
+</head>
+<body>
+    <form action="">
+        <p id="loi-ten"></p>
+        <input id="ten" placeholder="Nhập tên" name="username">
+        <button type="button" id="gui">Gửi</button>
+    </form>
+
+    <script>
+        function query(chuoi) {
+            return document.querySelector(chuoi);
+        }
+        // Dựng giao diện form
+        // 1. Khi chỉ xử lý việc bấm nút và kiểm tra nhưng k submit form
+        // Xử lý sự kiện click nút gửi
+        var btnGui = query('#gui');
+        btnGui.onclick = function () {
+            var inpTen = query('#ten');
+            var loiTen = query('#loi-ten');
+            if (inpTen.value == '') {
+                loiTen.innerHTML = 'Vui lòng nhập tên!';
+            } else {
+                loiTen.innerHTML = '';
+            }
+        }
+    </script>
+
+    <form action="" onsubmit="return kiemTraForm()">
+        <p id="loi-ten-2"></p>
+        <input id="ten-2" placeholder="Nhập tên" name="username-2">
+        <!-- button này mặc định đã có type='submit' -->
+        <!-- Khi bấm nút này sẽ kích hoạt sự kiện onsubmit của form -->
+        <button>Gửi</button>
+    </form>
+
+    <script>
+        // 2. Khi xử lý việc bấm nút kết hợp submit form
+        function kiemTraForm() {
+            var inpTen2 = query('#ten-2');
+            var loiTen2 = query('#loi-ten-2');
+            if (inpTen2.value == '') {
+                // Vừa hiển thị lỗi
+                loiTen2.innerHTML = 'Vui lòng nhập tên!';
+                // Vừa trả về kết quả false để onsubmit sẽ dừng
+                return false;
+            }
+            // Nếu không chạy vào if thì chắc chắn chạy vào đây
+            loiTen2.innerHTML = '';
+            // Khi đã đáp ứng được tất cả các điều kiện thì sẽ gửi đi
+            return true;
+        }
+
+        // Đúng luồng hoạt động:
+        // onsubmit sẽ kiểm tra xem việc đang lỗi là đúng hay sai
+        // button trong form sẽ không cần type='button' nữa
+        // kết hợp việc validate cũ với việc trả kq cho onsubmit
+    </script>
+</body>
+</html>
