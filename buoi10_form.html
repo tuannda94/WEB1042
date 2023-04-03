@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 10 Form</title>
+</head>
+<style>.red {color: red;}</style>
+<body>
+    <h1>Đăng ký thông tin user</h1>
+    <form action="" onsubmit="return kiemTra()">
+        <div>
+            <label for="ten">Họ tên <span class="red">*</span></label>
+            <div><input id="ten" name="name"></div>
+            <p id="loi-ten" class="red"></p>
+        </div>
+        <div>
+            <label for="sdt">SDT <span class="red">*</span></label>
+            <div><input id="sdt" name="phone"></div>
+            <p id="loi-sdt" class="red"></p>
+        </div>
+        <!-- Không cần id trong button để bắt sự kiện click nữa -->
+        <!-- Vì bây giờ sẽ chạy vào onsubmit khi bấm nút đó -->
+        <div><button>Gửi</button></div>
+    </form>
+    <script>
+        function query (chuoi) {return document.querySelector(chuoi);}
+        function kiemTra () {
+            var khongcoloi = true;
+
+            var inpTen = query('#ten');
+            var tenValue = inpTen.value;
+            var loiTen = query('#loi-ten');
+            if (tenValue == '') {
+                loiTen.innerHTML = 'Vui lòng nhập tên!';
+                khongcoloi = false;
+            } else if (tenValue.length < 8 || tenValue.length > 64) {
+                loiTen.innerHTML = '8 <= tên  <= 64 ký tự!';
+                khongcoloi = false;
+            } else {
+                loiTen.innerHTML = '';
+            }
+
+            var inpSDT = query('#sdt');
+            var sdtValue = inpSDT.value;
+            var loiSDT = query('#loi-sdt');
+            if (sdtValue == '') {
+                loiSDT.innerHTML = 'Vui lòng nhập sdt!';
+                khongcoloi = false;
+            } else if (sdtValue.length < 8 || sdtValue.length > 64) {
+                loiSDT.innerHTML = '8 <= sdt  <= 64 ký tự!';
+                khongcoloi = false;
+            } else {
+                loiSDT.innerHTML = '';
+            }
+
+            return khongcoloi;
+        }
+    </script>
+</body>
+</html>
