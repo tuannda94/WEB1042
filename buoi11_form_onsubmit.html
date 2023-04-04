@@ -1,0 +1,62 @@
+<!-- buoi11_form_onsubmit.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>.red {color: red;}</style>
+<body>
+    <form action="" onsubmit="return kiem_tra()">
+        <div>
+            <label for="ten">
+                Họ tên <span class="red">*</span>
+            </label>
+            <div><input id="ten"></div>
+            <p id="loi-ten" class="red"></p>
+        </div>
+        <div>
+            <label for="email">
+                Email <span class="red">*</span>
+            </label>
+            <div><input id="email"></div>
+            <p id="loi-email" class="red"></p>
+        </div>
+        <!-- Không còn chặn việc submit bằng type='button' -->
+        <!-- Việc kiểm soát khi bấm nút sẽ do onsubmit của form -->
+        <div><button>Gửi</button></div>
+    </form>
+    <script>
+        function query(chuoi) {
+            return document.querySelector(chuoi)
+        };
+        function kiem_tra() {
+            var khong_co_loi = true;
+
+            var inpTen = query('#ten');
+            var tenValue = inpTen.value;
+            var loiTen = query('#loi-ten');
+            if (tenValue == '') {
+                loiTen.innerHTML = 'Vui lòng nhập tên!';
+                khong_co_loi = false;
+            } else {
+                loiTen.innerHTML = '';
+            }
+
+            var inpEmail = query('#email');
+            var emailValue = inpEmail.value;
+            var loiEmail = query('#loi-email');
+            if (emailValue == '') {
+                loiEmail.innerHTML = 'Vui lòng nhập email!';
+                khong_co_loi = false;
+            } else {
+                loiEmail.innerHTML = '';
+            }
+
+            return khong_co_loi;
+        }
+    </script>
+</body>
+</html>
