@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="return kiem_tra()">
+        <div><input oninput="doiTen()" type="text" id="ten" ></div>
+        <p id="loi-ten"></p>
+        <div><button>Gửi</button></div>
+    </form>
+    <script>
+        var inpTen = document.querySelector('#ten');
+        var loiTen = document.querySelector('#loi-ten');
+        // input có id='ten' thoả mãn value > 8, value < 20
+        function kiem_tra_do_dai_ten () {
+            var tenVal = inpTen.value;
+            if (tenVal.length <= 8 || tenVal.length >= 20) {
+                loiTen.innerHTML = 'Độ dài tên không phù hợp!';
+                return false;
+            } else {
+                loiTen.innerHTML = '';
+                return true;
+            }
+        }
+
+        function doiTen () {
+            // Nếu khai báo ở ngoài thì luôn nhận đc gt
+            // ở thời điểm ban đầu là ''
+            kiem_tra_do_dai_ten();
+        }
+
+        function kiem_tra () {
+            var tenVal = inpTen.value;
+            var khongCoLoi = true;
+            khongCoLoi = kiem_tra_do_dai_ten();
+            return khongCoLoi;
+        }
+    </script>
+</body>
+</html>
