@@ -1,0 +1,50 @@
+<!-- buoi13_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buoi 13 Form</title>
+</head>
+<body>
+    <form action="" onsubmit="return kiemTra()">
+        <div>
+            <input
+                placeholder="Nhập tên"
+                id="ten"
+                oninput="thayDoiTen()"
+            >
+        </div>
+        <p id="loi-ten"></p>
+        <div><button>Gửi</button></div>
+    </form>
+    <script>
+        function query(chuoi) {
+            return document.querySelector(chuoi);
+        }
+        var inpTen = query('#ten');
+        var loiTen = query('#loi-ten');
+
+        function kiemTraTenRong() {
+            var tenVal = inpTen.value;
+            if (tenVal == '') {
+                loiTen.innerHTML = 'Vui lòng nhập tên';
+                return false;
+            } else {
+                loiTen.innerHTML = '';
+                return true;
+            }
+        }
+
+        function thayDoiTen() {
+            kiemTraTenRong();
+        }
+        function kiemTra() {
+            var khongCoLoi = true;
+            khongCoLoi = kiemTraTenRong();
+            return khongCoLoi;
+        }
+    </script>
+</body>
+</html>
