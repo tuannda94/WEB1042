@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="return kiemTra()">
+        <div><input oninput="thayDoiTen()" id="ten" placeholder="Nhập tên"></div>
+        <p id="loi-ten"></p>
+
+        <div><input oninput="thayDoiEmail()" id="email" placeholder="Nhập email"></div>
+        <p id="loi-email"></p>
+
+        <div><button>Gửi</button></div>
+    </form>
+    <script>
+        function query(chuoi) {
+            return document.querySelector(chuoi);
+        }
+
+        function thayDoiTen() {
+            var tenVal = query('#ten').value;
+            var loiTen = query('#loi-ten');
+
+            if (tenVal == '') {
+                loiTen.innerHTML = 'Vui lòng nhập tên';
+            } else {
+                loiTen.innerHTML = '';
+            }
+        }
+
+        function thayDoiEmail() {
+            var emailVal = query('#email').value;
+            var loiEmail = query('#loi-email');
+
+            if (emailVal == '') {
+                loiEmail.innerHTML = 'Vui lòng nhập email';
+                khongCoLoi = false;
+            } else {
+                loiEmail.innerHTML = '';
+            }
+        }
+
+        function kiemTra() {
+            var khongCoLoi = true;
+            var tenVal = query('#ten').value;
+            var loiTen = query('#loi-ten');
+            var emailVal = query('#email').value;
+            var loiEmail = query('#loi-email');
+
+            if (tenVal == '') {
+                loiTen.innerHTML = 'Vui lòng nhập tên';
+                khongCoLoi = false;
+            } else {
+                loiTen.innerHTML = '';
+            }
+
+            if (emailVal == '') {
+                loiEmail.innerHTML = 'Vui lòng nhập email';
+                khongCoLoi = false;
+            } else {
+                loiEmail.innerHTML = '';
+            }
+
+            return khongCoLoi;
+        }
+    </script>
+</body>
+</html>
