@@ -28,50 +28,37 @@
         function query(chuoi) {
             return document.querySelector(chuoi);
         }
-        function thayDoiTen() {
-            var inpTen = query('#ten');
-            var tenVal = inpTen.value;
-            var loiTen = query('#loi-ten');
+        var inpTen = query('#ten');
+        var loiTen = query('#loi-ten');
 
-            if (tenVal == '') {
-                loiTen.innerHTML = 'Nhập tên!!!';
+        var inpEmail = query('#email');
+        var loiEmail = query('#loi-email');
+
+        function kiemTraRong(value, noiLoi, nd) {
+            if (value == '') {
+                noiLoi.innerHTML = `Mày nhập ngay ${nd} cho tao!!!`;
+                return false;
             } else {
-                loiTen.innerHTML = '';
+                noiLoi.innerHTML = '';
+                return true;
             }
+        }
+
+        function thayDoiTen() {
+            var tenVal = inpTen.value;
+            kiemTraRong(tenVal, loiTen, 'tên');
         }
         function thayDoiEmail() {
-            var inpEmail = query('#email');
             var emailVal = inpEmail.value;
-            var loiEmail = query('#loi-email');
-
-            if (emailVal == '') {
-                loiEmail.innerHTML = 'Nhập email!!!';
-            } else {
-                loiEmail.innerHTML = '';
-            }
+            kiemTraRong(emailVal, loiEmail, 'email');
         }
         function kiemTra() {
-            var inpTen = query('#ten');
             var tenVal = inpTen.value;
-            var loiTen = query('#loi-ten');
-            var inpEmail = query('#email');
             var emailVal = inpEmail.value;
-            var loiEmail = query('#loi-email');
 
             var khongCoLoi = true;
-            if (tenVal == '') {
-                loiTen.innerHTML = 'Nhập tên!!!';
-                khongCoLoi = false;
-            } else {
-                loiTen.innerHTML = '';
-            }
-
-            if (emailVal == '') {
-                loiEmail.innerHTML = 'Nhập email!!!';
-                khongCoLoi = false;
-            } else {
-                loiEmail.innerHTML = '';
-            }
+            khongCoLoi = kiemTraRong(tenVal, loiTen, 'tên');
+            khongCoLoi = kiemTraRong(emailVal, loiEmail, 'email');
 
             return khongCoLoi;
         }
