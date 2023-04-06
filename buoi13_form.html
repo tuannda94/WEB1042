@@ -17,6 +17,22 @@
             >
         </div>
         <p id="loi-ten"></p>
+        <div>
+            <input
+                placeholder="Nhập Email"
+                id="email"
+                oninput="thayDoiEmail()"
+            >
+        </div>
+        <p id="loi-email"></p>
+        <div>
+            <input
+                placeholder="Nhập SDT"
+                id="sdt"
+                oninput="thayDoiSDT()"
+            >
+        </div>
+        <p id="loi-sdt"></p>
         <div><button>Gửi</button></div>
     </form>
     <script>
@@ -25,24 +41,77 @@
         }
         var inpTen = query('#ten');
         var loiTen = query('#loi-ten');
+        var inpEmail = query('#email');
+        var loiEmail = query('#loi-email');
+        var inpSDT = query('#sdt');
+        var loiSDT = query('#loi-sdt');
 
-        function kiemTraTenRong() {
-            var tenVal = inpTen.value;
-            if (tenVal == '') {
-                loiTen.innerHTML = 'Vui lòng nhập tên';
+        function kiemTraRong(value, doiTuongTheLoi) {
+            if (value == '') {
+                doiTuongTheLoi.innerHTML = 'Vui lòng nhập';
                 return false;
             } else {
-                loiTen.innerHTML = '';
+                doiTuongTheLoi.innerHTML = '';
                 return true;
             }
         }
 
+        function kiemTraDoDai(
+            value,
+            doiTuongTheLoi,
+            min = 8, max = 64
+        ) {
+            if (value.length < min || value.length > max ) {
+                doiTuongTheLoi.innerHTML = 'Lỗi độ dài';
+                return false;
+            } else {
+                doiTuongTheLoi.innerHTML = '';
+                return true;
+            }
+        }
+
+        // function kiemTraTenRong() {
+        //     var tenVal = inpTen.value;
+        //     if (tenVal == '') {
+        //         loiTen.innerHTML = 'Vui lòng nhập tên';
+        //         return false;
+        //     } else {
+        //         loiTen.innerHTML = '';
+        //         return true;
+        //     }
+        // }
+
+        // function kiemTraEmailRong() {
+        //     var emailVal = inpEmail.value;
+        //     if (emailVal == '') {
+        //         loiEmail.innerHTML = 'Vui lòng nhập email';
+        //         return false;
+        //     } else {
+        //         loiEmail.innerHTML = '';
+        //         return true;
+        //     }
+        // }
+
         function thayDoiTen() {
-            kiemTraTenRong();
+            return (
+            kiemTraRong(inpTen.value, loiTen) &&
+            kiemTraDoDai(inpTen.value, loiTen, 10, 20));
+        }
+
+        function thayDoiEmail() {
+            // kiemTraEmailRong();
+            return kiemTraRong(inpEmail.value, loiEmail);
+        }
+
+        function thayDoiSDT() {
+            // kiemTraEmailRong();
+            return kiemTraRong(inpSDT.value, loiSDT);
         }
         function kiemTra() {
             var khongCoLoi = true;
-            khongCoLoi = kiemTraTenRong();
+            khongCoLoi = thayDoiTen();
+            khongCoLoi = thayDoiEmail();
+            khongCoLoi = thayDoiSDT();
             return khongCoLoi;
         }
     </script>
