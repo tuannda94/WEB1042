@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" emailtent="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="return kiemTra()">
+        <div><input
+            id="ten"
+            placeholder="Tên"
+            oninput="thayDoiTen()"
+        ></div>
+        <p id="loi-ten"></p>
+
+        <div><input
+            id="email"
+            placeholder="Email"
+            oninput="thayDoiEmail()"
+        ></div>
+        <p id="loi-email"></p>
+
+        <div><button>Gửi</button></div>
+    </form>
+    <script>
+        function query(chuoi) {
+            return document.querySelector(chuoi);
+        }
+        function thayDoiTen() {
+            var inpTen = query('#ten');
+            var tenVal = inpTen.value;
+            var loiTen = query('#loi-ten');
+
+            if (tenVal == '') {
+                loiTen.innerHTML = 'Nhập tên!!!';
+            } else {
+                loiTen.innerHTML = '';
+            }
+        }
+        function thayDoiEmail() {
+            var inpEmail = query('#email');
+            var emailVal = inpEmail.value;
+            var loiEmail = query('#loi-email');
+
+            if (emailVal == '') {
+                loiEmail.innerHTML = 'Nhập email!!!';
+            } else {
+                loiEmail.innerHTML = '';
+            }
+        }
+        function kiemTra() {
+            var inpTen = query('#ten');
+            var tenVal = inpTen.value;
+            var loiTen = query('#loi-ten');
+            var inpEmail = query('#email');
+            var emailVal = inpEmail.value;
+            var loiEmail = query('#loi-email');
+
+            var khongCoLoi = true;
+            if (tenVal == '') {
+                loiTen.innerHTML = 'Nhập tên!!!';
+                khongCoLoi = false;
+            } else {
+                loiTen.innerHTML = '';
+            }
+
+            if (emailVal == '') {
+                loiEmail.innerHTML = 'Nhập email!!!';
+                khongCoLoi = false;
+            } else {
+                loiEmail.innerHTML = '';
+            }
+
+            return khongCoLoi;
+        }
+    </script>
+</body>
+</html>

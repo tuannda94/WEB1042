@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="return kiem_tra()">
+        <div><input id="ten" placeholder="Tên"></div>
+        <p id="loi-ten"></p>
+
+        <div><input id="email" placeholder="Email"></div>
+        <p id="loi-email"></p>
+
+        <!-- Không còn dùng type='button' để chặn submit -->
+        <!-- Chuyển sang xử lý bằng onsubmit trong thẻ form -->
+        <div><button>Gửi</button></div>
+    </form>
+    <script>
+        function kiem_tra() {
+            var khong_co_loi = true;
+            var inpTenValue = document.querySelector('#ten')
+                .value;
+            var loiTen = document.querySelector('#loi-ten');
+            if (inpTenValue == '') {
+                khong_co_loi = false;
+                loiTen.innerHTML = 'Lỗi tên';
+            } else {
+                loiTen.innerHTML = '';
+            }
+
+            return khong_co_loi;
+        };
+    </script>
+</body>
+</html>
