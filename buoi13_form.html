@@ -21,50 +21,38 @@
             return document.querySelector(chuoi);
         }
 
-        function thayDoiTen() {
-            var tenVal = query('#ten').value;
-            var loiTen = query('#loi-ten');
+        var inpTen = query('#ten');
+        var loiTen = query('#loi-ten');
+        var inpEmail = query('#email');
+        var loiEmail = query('#loi-email');
 
-            if (tenVal == '') {
-                loiTen.innerHTML = 'Vui lòng nhập tên';
+        function kiemTraRong(value, noiHienLoi, noiDung) {
+            if (value == '') {
+                noiHienLoi.innerHTML = `Vui lòng nhập ${noiDung}`;
+                return false;
             } else {
-                loiTen.innerHTML = '';
+                noiHienLoi.innerHTML = '';
+                return true;
             }
         }
 
-        function thayDoiEmail() {
-            var emailVal = query('#email').value;
-            var loiEmail = query('#loi-email');
+        function thayDoiTen() {
+            tenVal = inpTen.value;
+            return kiemTraRong(tenVal, loiTen, 'tên');
+        }
 
-            if (emailVal == '') {
-                loiEmail.innerHTML = 'Vui lòng nhập email';
-                khongCoLoi = false;
-            } else {
-                loiEmail.innerHTML = '';
-            }
+        function thayDoiEmail() {
+            emailVal = inpEmail.value;
+            return kiemTraRong(emailVal, loiEmail, 'email');
         }
 
         function kiemTra() {
             var khongCoLoi = true;
-            var tenVal = query('#ten').value;
-            var loiTen = query('#loi-ten');
-            var emailVal = query('#email').value;
-            var loiEmail = query('#loi-email');
+            tenVal = inpTen.value;
+            emailVal = inpEmail.value;
 
-            if (tenVal == '') {
-                loiTen.innerHTML = 'Vui lòng nhập tên';
-                khongCoLoi = false;
-            } else {
-                loiTen.innerHTML = '';
-            }
-
-            if (emailVal == '') {
-                loiEmail.innerHTML = 'Vui lòng nhập email';
-                khongCoLoi = false;
-            } else {
-                loiEmail.innerHTML = '';
-            }
-
+            khongCoLoi = thayDoiTen();
+            khongCoLoi = thayDoiEmail();
             return khongCoLoi;
         }
     </script>
